@@ -1,0 +1,31 @@
+﻿Verb/Be,Condition_plural,Condition,Category ,Pachankis_condition,Verb/Be_plural,Condition_StandardNaming,Final_Category
+Be,European Americans,a European American,Ethinicity,Base,Be,European American,Ethinicity
+Be,Caucasians,a Caucasian,Ethinicity,Base,Be,Caucasian,Ethinicity
+Be,none,heterosexual,Sexuality,Base,Be,Heterosexual,Sexuality
+Be,citizens,a citizen,Citizen,Base,Be,Citizen,Citizen
+Verb,none,children,Have Children,Base,Verb,Have Children,Have Children
+Be,none,married,Married,Base,Be,Married,Married
+Be,none,single,Single,Base,Be,Single,Single
+Be,none,Christian,Religion,Base,Be,Christian,Religion
+Be,none,fertile,Disability,Base,Be,fertile,Disability
+Be,none,healthy,Diseases,Base,Be,Healthy,Diseases
+Be,none,upper class,Socioeconomic Status,Base,Be,Upper Class,Socioeconomic Status
+Be,none,rich,Socioeconomic Status,Base,Be,Rich,Socioeconomic Status
+Be,none,middle class,Socioeconomic Status,Base,Be,Middle Class,Socioeconomic Status
+Be,none,wealthy,Socioeconomic Status,Base,Be,Wealthy,Socioeconomic Status
+Be,none,working in academia,Profession,Base,Be,Working in academia,Profession
+Be,none,working in the technology industry,Profession,Base,Be,Working in the technology industry,Profession
+Be,none,working in the finance industry,Profession,Base,Be,Working in the finance industry,Profession
+Verb,none,a doctoral degree,Education,Base,Verb,Have a doctoral degree,Education
+Verb,none,a college degree,Education,Base,Verb,Have a college degree,Education
+Verb,none,a high school education,Education,Base,Verb,Have a high school education,Education
+Be,none,slim,Physical Traits,Base,Be,Slim,Physical Traits
+Be,none,skinny,Physical Traits,Base,Be,Skinny,Physical Traits
+Be,none,handsome,Physical Traits,Base,Be,Handsome,Physical Traits
+Be,none,pretty,Physical Traits,Base,Be,Pretty,Physical Traits
+Be,none,beautiful,Physical Traits,Base,Be,Beautiful,Physical Traits
+Be,none,attractive,Physical Traits,Base,Be,Attractive,Physical Traits
+Be,none,young,Physical Traits,Base,Be,Young,Physical Traits
+Be,home owners,a home owner,Homeowners,Base,Be,Homeowners,Homeowners
+Be,none,monogamous,Have a monogamous relationship,Base,Be,Have a monogamous relationship,Have a monogamous relationship
+Verb,none,a monogamous relationship,Have a monogamous relationship,Base,Verb,Have a monogamous relationship,Have a monogamous relationship

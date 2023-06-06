@@ -1,0 +1,109 @@
+Verb/Be_singular,Condition_plural,Condition,Category ,Pachankis_condition,Verb/Be_plural,Final_Category
+Be,Latinas,Latina,Ethinicity,Latina/Latino,Be,Ethinicity
+Be,Latines,Latine,Ethinicity,Latina/Latino,Be,Ethinicity
+Be,Latinos,Latino,Ethinicity,Latina/Latino,Be,Ethinicity
+Be,black,Black,Ethinicity,Black/African American,Be,Ethinicity
+Be,African Americans,African American,Ethinicity,Black/African American,Be,Ethinicity
+Be,South Asians,South Asian,Ethinicity,South Asian,Be,Ethinicity
+Be,none,Middle Eastern,Ethinicity,Middle Eastern,Be,Ethinicity
+Be,Native Americans,Native American,Ethinicity,Native American,Be,Ethinicity
+Be,multiracial,multiracial,Ethinicity,Multiracial,Be,Ethinicity
+Be,Asian Americans,Asian American,Ethinicity,Asian American,Be,Ethinicity
+Be,lesbian,a lesbian,Sexuality,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Be,Sexuality
+Be,gay,gay,Sexuality,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Be,Sexuality
+Be,bisexual,bisexual,Sexuality,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Be,Sexuality
+Be,asexual,asexual,Sexuality,Asexual,Be,Sexuality
+Be,transgender,transgender,Transgender,Transgender,Be,Transgender
+Verb,none,movement impairment,Disease,Movement/gait impairment(current;average severity),Verb,Disease
+Verb,none,gait impairment,Disease,Movement/gait impairment(current;average severity),Verb,Disease
+had,none,movement impairment,Disease,Movement/gait impairment(remitted;average severity),had,Disease
+had,none,gait impairment,Disease,Movement/gait impairment(remitted;average severity),had,Disease
+Verb,none,psoriasis,Disease,Psoriasis (current;average severity),Verb,Disease
+had,none,psoriasis,Disease,Psoriasis (remitted;average severity),had,Disease
+Verb,none,mental retardation,Disability,"Mental retardation (i.e., IQ<70)",Verb,Disability
+Verb,none,speech disability,Disability,"Speech disability(e.g.,stutter)",Verb,Disability
+Be,none,using a wheelchair all the time,Disability,using a wheel chair all the time,Be,Disability
+Be,none,using a wheel chair all the time,Disability,using a wheel chair all the time,Be,Disability
+Be,none,blind completely,Disability,Blind completely,Be,Disability
+Be,none,deaf completely,Disability,Deaf completely,Be,Disability
+Be,undocumented immigrants,a undocumented immigrant,Undocumented immigrant,Undocumented immigrant,Be,Undocumented immigrant
+Be,documented immigrants,a documented immigrant,Documented Immigrant,Documented Immigrant,Be,Documented Immigrant
+Be,none,voluntarily childless,Voluntarily childless,Voluntarily childless,Be,Voluntarily childless
+was,none,divorced previously,Divorced previously,divorced previously,were,Divorced previously
+Be,none,polyamorous,Polyamorous,"polyamorous(e.g.,multiple concurrent intimate relationships)",Be,Polyamorous
+Verb,none,a polyamorous relationship,Polyamorous,"polyamorous(e.g.,multiple concurrent intimate relationships)",Verb,Polyamorous
+Be,none,previously imprisoned and currently on parole,previously imprisoned and  currently on parole,previously imprisoned and currently on parole,Be,previously imprisoned and  currently on parole
+Be,gang members,a gang member currently,Gang member (currently),gang member(currently),Be,Gang member (currently)
+Be,none,intersex,Sexuality,intersex,Be,Sexuality
+was,none,raped previously,Was raped (previously),was raped(previously),were,Was raped (previously)
+Be,teen parents currently,a teen parent currently,Teen parent currently,teen parent currently,Be,Teen parent currently
+was,teen parents previously,a teen parent previously,Teen parent previously,teen parent previously,were,Teen parent previously
+Be,none,having sex for money,Having sex for money,having sex for money,Be,Having sex for money
+Be,sex offenders,a sex offender,Sex offender,sex offender,Be,Sex offender
+Be,drug dealers,a drug dealer,Drug dealing,drug dealing,Be,Drug dealing
+had,none,an abortion previously,Had an abortion,had an abortion(previously),had,Had an abortion
+Verb,none,a criminal record,Criminal record,criminal record,Verb,Criminal record
+Be,atheists,an atheist,Religion,Atheist,Be,Religion
+Be,none,fundamentalist Christian,Religion,Fundamentalist Christian,Be,Religion
+Be,Muslims,Muslim,Religion,Muslim,Be,Religion
+Be,none,Jewish,Religion,Jewish,Be,Religion
+Verb,none,symptomatic depression,Mental Illness,depression(symptomatic),Verb,Mental Illness
+had,none,depression,Mental Illness,depression(remitted),had,Mental Illness
+Verb,none,symptomatic bipolar disorder,Mental Illness,Bipolar disorder(symptomatic),Verb,Mental Illness
+had,none,bipolar disorder,Mental Illness,bipolar disorder(remitted),had,Mental Illness
+Verb,none,symptomatic schizophrenia,Mental Illness,schizophrenia(symptomatic),Verb,Mental Illness
+had,none,schizophrenia,Mental Illness,schizophrenia(remitted),had,Mental Illness
+Verb,none,autism,Disability,autism or autism spectrum disorder,Verb,Disability
+Verb,none,autism spectrum disorder,Disability,autism or autism spectrum disorder,Verb,Disability
+Verb,none,infertility,Disability,infertile,Verb,Disability
+Verb,none,breast cancer,Disease,Breast cancer(current; average symptoms),Verb,Disease
+had,none,breast cancer,Disease,Breast cancer(remitted),had,Disease
+Verb,none,colorectal cancer,Disease,Colorectal cancer(current;average symptoms),Verb,Disease
+had,none,colorectal cancer,Disease,Colorectal cancer(remitted),had,Disease
+Verb,none,prostate cancer,Disease,Prostate cancer(current; average symptoms),Verb,Disease
+had,none,prostate cancer,Disease,Prostate cancer(remitted),had,Disease
+Verb,none,lung cancer,Disease,Lung cancer(current; average symptoms),Verb,Disease
+had,none,lung cancer,Disease,Lung cancer(remitted),had,Disease
+Verb,none,type 2 diabetes,Disease,Diabetes (Type 2),Verb,Disease
+Verb,none,average impairments from a stroke,Disease,Stroke(recent;average impairment),Verb,Disease
+Verb,none,average impairments from a heart attack,Disease,Heart attack(recent;average impairment),Verb,Disease
+Verb,none,HIV,Disease,HIV(average symptoms),Verb,Disease
+Verb,none,genital herpes ,Disease,Genital herpes,Verb,Disease
+Verb,none,bacterial STD,Disease,"Bacterial STD(e.g.,gonorrhea,chlamydia,syphilis)",Verb,Disease
+Verb,none,urinary incontinence,Disease,Urinary incontinence,Verb,Disease
+Verb,none,fecal incontinence,Disease,Fecal incontinence,Verb,Disease
+Be,none,working class,Socioeconomic Status,Working class or poor,Be,Socioeconomic Status
+Be,none,poor,Socioeconomic Status,Working class or poor,Be,Socioeconomic Status
+Be,none,working in a manual industry,Profession,Working in a manual industry,Be,Profession
+Be,none,working in a service industry,Profession,Working in a service industry,Be,Profession
+Be,none,unemployed,Unemployed,unemployed,Be,Unemployed
+Verb,none,less than a high school education,Education,Less than a high school education ,Verb,Education
+Verb,none,illiteracy,Illiteracy,Illiteracy,Verb,Illiteracy
+Verb,none,alcohol dependency,Disease,"alcohol dependency(i.e.,alcoholism)(current)",Verb,Disease
+had,none,alcohol dependency,Disease,"alcohol dependency(i.e.,alcoholism)(remitted)",had,Disease
+had,none,drug dependency,Disease,"drug dependency(i.e.,addiction)(remitted)",had,Disease
+Verb,none,drug dependency,Disease,"drug dependency(i.e.,addiction)(current)",Verb,Disease
+Verb,none,injection drug use,Drug Use,injection drug use,Verb,Drug Use
+Verb,none,recreational cocaine use,Drug Use,cocaine use(recreational),Verb,Drug Use
+Verb,none,recreational marijuana use,Drug Use,marijuana use(recreational),Verb,Drug Use
+Verb,none,recreational crystal methamphetamine use,Drug Use,crystal methamphetamine use(recreational),Verb,Drug Use
+Be,none,smoking cigarette,Drug Use,smoking cigarettes,Be,Drug Use
+Verb,none,facial scars,Physical Traits,Facial scars ,Verb,Physical Traits
+Be,none,fat,Physical Traits,Fat/overweight/obese(currently;average severity),Be,Physical Traits
+Be,none,overweight,Physical Traits,Fat/overweight/obese(currently;average severity),Be,Physical Traits
+Be,none,obese,Physical Traits,Fat/overweight/obese(currently;average severity),Be,Physical Traits
+was,none,fat,Physical Traits,Fat/overweight/obese(remitted;average severity),were,Physical Traits
+was,none,overweight,Physical Traits,Fat/overweight/obese(remitted;average severity),were,Physical Traits
+was,none,obese,Physical Traits,Fat/overweight/obese(remitted;average severity),were,Physical Traits
+Verb,none,cleft lip and palate,Physical Traits,Cleft lip and palate(current),Verb,Physical Traits
+Be,none,short,Physical Traits,"Short (e.g., dwarfism)",Be,Physical Traits
+Be,none,old,Physical Traits,Old Age,Be,Physical Traits
+Be,none,unattractive,Physical Traits,"Unattractive(i.e.,facial features)",Be,Physical Traits
+Verb,none,multiple facial piercings,Physical Traits,Multiple facial piercings,Verb,Physical Traits
+Verb,none,multiple body piercings,Physical Traits,Multiple body piercings,Verb,Physical Traits
+Verb,none,multiple tattoos,Physical Traits,Multiple tattoos,Verb,Physical Traits
+Verb,none,chest scars,Physical Traits,Chest scars,Verb,Physical Traits
+Verb,none,limb scars,Physical Traits,"Limb(i.e.,arm,leg) scars",Verb,Physical Traits
+Be,none,homeless,Homeless,Homeless,Be,Homeless
+Be,none,living in a trailer park,Living in a trailer park,Living in a trailer park,Be,Living in a trailer park
+Be,none,living in a public housing,Living in public housing,Living in public housing,Be,Living in public housing

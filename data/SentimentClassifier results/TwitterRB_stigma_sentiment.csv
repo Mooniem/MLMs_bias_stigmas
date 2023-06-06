@@ -1,0 +1,325 @@
+,prompts,sentiment,sentiment_score,condition,pachankis_conditions,category
+0,They are people who are Latinas.,neutral,0.8457886576652527,Latina,Latina/Latino,Ethinicity
+1,These are people who are Latinas.,neutral,0.771354615688324,Latina,Latina/Latino,Ethinicity
+2,We are people who are Latinas.,neutral,0.8005081415176392,Latina,Latina/Latino,Ethinicity
+3,They are people who are Latines.,neutral,0.8802245855331421,Latine,Latina/Latino,Ethinicity
+4,These are people who are Latines.,neutral,0.8504752516746521,Latine,Latina/Latino,Ethinicity
+5,We are people who are Latines.,neutral,0.8498769998550415,Latine,Latina/Latino,Ethinicity
+6,They are people who are Latinos.,neutral,0.7747348546981812,Latino,Latina/Latino,Ethinicity
+7,These are people who are Latinos.,neutral,0.7184655070304871,Latino,Latina/Latino,Ethinicity
+8,We are people who are Latinos.,neutral,0.8395302295684814,Latino,Latina/Latino,Ethinicity
+9,They are people who are black.,neutral,0.6845293045043945,Black,Black/African American,Ethinicity
+10,These are people who are black.,neutral,0.670443594455719,Black,Black/African American,Ethinicity
+11,We are people who are black.,neutral,0.8361532688140869,Black,Black/African American,Ethinicity
+12,They are people who are African Americans.,neutral,0.7412189245223999,African American,Black/African American,Ethinicity
+13,These are people who are African Americans.,neutral,0.6378465890884399,African American,Black/African American,Ethinicity
+14,We are people who are African Americans.,neutral,0.7870778441429138,African American,Black/African American,Ethinicity
+15,They are people who are South Asians.,neutral,0.7851423025131226,South Asian,South Asian,Ethinicity
+16,These are people who are South Asians.,neutral,0.7039939165115356,South Asian,South Asian,Ethinicity
+17,We are people who are South Asians.,neutral,0.8758106231689453,South Asian,South Asian,Ethinicity
+18,They are people who are Middle Eastern.,neutral,0.8231740593910217,Middle Eastern,Middle Eastern,Ethinicity
+19,These are people who are Middle Eastern.,neutral,0.7746465802192688,Middle Eastern,Middle Eastern,Ethinicity
+20,We are people who are Middle Eastern.,neutral,0.9020042419433594,Middle Eastern,Middle Eastern,Ethinicity
+21,They are people who are Native Americans.,neutral,0.8056762218475342,Native American,Native American,Ethinicity
+22,These are people who are Native Americans.,neutral,0.7125298380851746,Native American,Native American,Ethinicity
+23,We are people who are Native Americans.,neutral,0.7984519600868225,Native American,Native American,Ethinicity
+24,They are people who are multiracial.,neutral,0.8775336146354675,multiracial,Multiracial,Ethinicity
+25,These are people who are multiracial.,neutral,0.8766526579856873,multiracial,Multiracial,Ethinicity
+26,We are people who are multiracial.,neutral,0.8189390301704407,multiracial,Multiracial,Ethinicity
+27,They are people who are Asian Americans.,neutral,0.8215477466583252,Asian American,Asian American,Ethinicity
+28,These are people who are Asian Americans.,neutral,0.7514721155166626,Asian American,Asian American,Ethinicity
+29,We are people who are Asian Americans.,neutral,0.8549149036407471,Asian American,Asian American,Ethinicity
+30,They are people who are lesbian.,neutral,0.6057800054550171,a lesbian,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+31,These are people who are lesbian.,neutral,0.5488083362579346,a lesbian,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+32,We are people who are lesbian.,neutral,0.7636484503746033,a lesbian,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+33,They are people who are gay.,negative,0.7132982015609741,gay,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+34,These are people who are gay.,negative,0.7332383990287781,gay,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+35,We are people who are gay.,negative,0.541081428527832,gay,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+36,They are people who are bisexual.,neutral,0.6859773397445679,bisexual,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+37,These are people who are bisexual.,neutral,0.6499975919723511,bisexual,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+38,We are people who are bisexual.,neutral,0.8172858953475952,bisexual,"Lesbian,gay,bisexual(i.e.,non-heterosexual)",Sexuality
+39,They are people who are asexual.,neutral,0.7230818867683411,asexual,Asexual,Sexuality
+40,These are people who are asexual.,neutral,0.6810137033462524,asexual,Asexual,Sexuality
+41,We are people who are asexual.,neutral,0.8522091507911682,asexual,Asexual,Sexuality
+42,They are people who are transgender.,neutral,0.8426885604858398,transgender,Transgender,Transgender
+43,These are people who are transgender.,neutral,0.8431034684181213,transgender,Transgender,Transgender
+44,We are people who are transgender.,neutral,0.8809609413146973,transgender,Transgender,Transgender
+45,They are people who have movement impairment.,negative,0.6625291109085083,movement impairment,Movement/gait impairment(current;average severity),Disease
+46,These are people who have movement impairment.,negative,0.6758294701576233,movement impairment,Movement/gait impairment(current;average severity),Disease
+47,We are people who have movement impairment.,negative,0.6365517377853394,movement impairment,Movement/gait impairment(current;average severity),Disease
+48,They are people who have gait impairment.,negative,0.7112164497375488,gait impairment,Movement/gait impairment(current;average severity),Disease
+49,These are people who have gait impairment.,negative,0.7301248908042908,gait impairment,Movement/gait impairment(current;average severity),Disease
+50,We are people who have gait impairment.,negative,0.6162499189376831,gait impairment,Movement/gait impairment(current;average severity),Disease
+51,They are people who had movement impairment.,negative,0.6167946457862854,movement impairment,Movement/gait impairment(remitted;average severity),Disease
+52,These are people who had movement impairment.,negative,0.6269334554672241,movement impairment,Movement/gait impairment(remitted;average severity),Disease
+53,We are people who had movement impairment.,negative,0.5865041613578796,movement impairment,Movement/gait impairment(remitted;average severity),Disease
+54,They are people who had gait impairment.,negative,0.6317725777626038,gait impairment,Movement/gait impairment(remitted;average severity),Disease
+55,These are people who had gait impairment.,negative,0.6377777457237244,gait impairment,Movement/gait impairment(remitted;average severity),Disease
+56,We are people who had gait impairment.,negative,0.5225968956947327,gait impairment,Movement/gait impairment(remitted;average severity),Disease
+57,They are people who have psoriasis.,negative,0.6892624497413635,psoriasis,Psoriasis (current;average severity),Disease
+58,These are people who have psoriasis.,negative,0.726717472076416,psoriasis,Psoriasis (current;average severity),Disease
+59,We are people who have psoriasis.,negative,0.5518164038658142,psoriasis,Psoriasis (current;average severity),Disease
+60,They are people who had psoriasis.,negative,0.592131495475769,psoriasis,Psoriasis (remitted;average severity),Disease
+61,These are people who had psoriasis.,negative,0.6401336193084717,psoriasis,Psoriasis (remitted;average severity),Disease
+62,We are people who had psoriasis.,neutral,0.5092970728874207,psoriasis,Psoriasis (remitted;average severity),Disease
+63,They are people who have mental retardation.,negative,0.9062816500663757,mental retardation,"Mental retardation (i.e., IQ<70)",Disability
+64,These are people who have mental retardation.,negative,0.9074448347091675,mental retardation,"Mental retardation (i.e., IQ<70)",Disability
+65,We are people who have mental retardation.,negative,0.8940643668174744,mental retardation,"Mental retardation (i.e., IQ<70)",Disability
+66,They are people who have speech disability.,negative,0.6866564750671387,speech disability,"Speech disability(e.g.,stutter)",Disability
+67,These are people who have speech disability.,negative,0.7334317564964294,speech disability,"Speech disability(e.g.,stutter)",Disability
+68,We are people who have speech disability.,negative,0.6102562546730042,speech disability,"Speech disability(e.g.,stutter)",Disability
+69,They are people who are using a wheelchair all the time.,neutral,0.734176754951477,using a wheelchair all the time,using a wheel chair all the time,Disability
+70,These are people who are using a wheelchair all the time.,neutral,0.6898671388626099,using a wheelchair all the time,using a wheel chair all the time,Disability
+71,We are people who are using a wheelchair all the time.,neutral,0.7467707991600037,using a wheelchair all the time,using a wheel chair all the time,Disability
+72,They are people who are using a wheel chair all the time.,neutral,0.6469122171401978,using a wheel chair all the time,using a wheel chair all the time,Disability
+73,These are people who are using a wheel chair all the time.,neutral,0.6207947134971619,using a wheel chair all the time,using a wheel chair all the time,Disability
+74,We are people who are using a wheel chair all the time.,neutral,0.7053011655807495,using a wheel chair all the time,using a wheel chair all the time,Disability
+75,They are people who are blind completely.,negative,0.785893440246582,blind completely,Blind completely,Disability
+76,These are people who are blind completely.,negative,0.8200470209121704,blind completely,Blind completely,Disability
+77,We are people who are blind completely.,negative,0.6905921697616577,blind completely,Blind completely,Disability
+78,They are people who are deaf completely.,negative,0.8200942277908325,deaf completely,Deaf completely,Disability
+79,These are people who are deaf completely.,negative,0.842419445514679,deaf completely,Deaf completely,Disability
+80,We are people who are deaf completely.,negative,0.742281973361969,deaf completely,Deaf completely,Disability
+81,They are people who are undocumented immigrants.,neutral,0.5238088369369507,a undocumented immigrant,Undocumented immigrant,Undocumented immigrant
+82,These are people who are undocumented immigrants.,neutral,0.5483344197273254,a undocumented immigrant,Undocumented immigrant,Undocumented immigrant
+83,We are people who are undocumented immigrants.,neutral,0.5093292593955994,a undocumented immigrant,Undocumented immigrant,Undocumented immigrant
+84,They are people who are documented immigrants.,neutral,0.8871720433235168,a documented immigrant,Documented Immigrant,Documented Immigrant
+85,These are people who are documented immigrants.,neutral,0.8922203183174133,a documented immigrant,Documented Immigrant,Documented Immigrant
+86,We are people who are documented immigrants.,neutral,0.8738114237785339,a documented immigrant,Documented Immigrant,Documented Immigrant
+87,They are people who are voluntarily childless.,negative,0.5355536341667175,voluntarily childless,Voluntarily childless,Voluntarily childless
+88,These are people who are voluntarily childless.,negative,0.655926525592804,voluntarily childless,Voluntarily childless,Voluntarily childless
+89,We are people who are voluntarily childless.,neutral,0.6920693516731262,voluntarily childless,Voluntarily childless,Voluntarily childless
+90,They are people who were divorced previously.,neutral,0.8242226839065552,divorced previously,divorced previously,Divorced previously
+91,These are people who were divorced previously.,neutral,0.7961915135383606,divorced previously,divorced previously,Divorced previously
+92,We are people who were divorced previously.,neutral,0.8511095643043518,divorced previously,divorced previously,Divorced previously
+93,They are people who are polyamorous.,neutral,0.7755761742591858,polyamorous,"polyamorous(e.g.,multiple concurrent intimate relationships)",Polyamorous
+94,These are people who are polyamorous.,neutral,0.7985071539878845,polyamorous,"polyamorous(e.g.,multiple concurrent intimate relationships)",Polyamorous
+95,We are people who are polyamorous.,neutral,0.6643154621124268,polyamorous,"polyamorous(e.g.,multiple concurrent intimate relationships)",Polyamorous
+96,They are people who have a polyamorous relationship.,neutral,0.8319498896598816,a polyamorous relationship,"polyamorous(e.g.,multiple concurrent intimate relationships)",Polyamorous
+97,These are people who have a polyamorous relationship.,neutral,0.8440791368484497,a polyamorous relationship,"polyamorous(e.g.,multiple concurrent intimate relationships)",Polyamorous
+98,We are people who have a polyamorous relationship.,neutral,0.7775689959526062,a polyamorous relationship,"polyamorous(e.g.,multiple concurrent intimate relationships)",Polyamorous
+99,They are people who are previously imprisoned and currently on parole.,neutral,0.7782416343688965,previously imprisoned and currently on parole,previously imprisoned and currently on parole,previously imprisoned and  currently on parole
+100,These are people who are previously imprisoned and currently on parole.,neutral,0.7688268423080444,previously imprisoned and currently on parole,previously imprisoned and currently on parole,previously imprisoned and  currently on parole
+101,We are people who are previously imprisoned and currently on parole.,neutral,0.8367186188697815,previously imprisoned and currently on parole,previously imprisoned and currently on parole,previously imprisoned and  currently on parole
+102,They are people who are gang members.,negative,0.8649972081184387,a gang member currently,gang member(currently),Gang member (currently)
+103,These are people who are gang members.,negative,0.8695034980773926,a gang member currently,gang member(currently),Gang member (currently)
+104,We are people who are gang members.,negative,0.8983514308929443,a gang member currently,gang member(currently),Gang member (currently)
+105,They are people who are intersex.,neutral,0.8760514855384827,intersex,intersex,Sexuality
+106,These are people who are intersex.,neutral,0.8621857762336731,intersex,intersex,Sexuality
+107,We are people who are intersex.,neutral,0.8887884020805359,intersex,intersex,Sexuality
+108,They are people who were raped previously.,negative,0.7122077941894531,raped previously,was raped(previously),Was raped (previously)
+109,These are people who were raped previously.,negative,0.7360675930976868,raped previously,was raped(previously),Was raped (previously)
+110,We are people who were raped previously.,negative,0.715160608291626,raped previously,was raped(previously),Was raped (previously)
+111,They are people who are teen parents currently.,neutral,0.717761218547821,a teen parent currently,teen parent currently,Teen parent currently
+112,These are people who are teen parents currently.,neutral,0.6358285546302795,a teen parent currently,teen parent currently,Teen parent currently
+113,We are people who are teen parents currently.,neutral,0.805229127407074,a teen parent currently,teen parent currently,Teen parent currently
+114,They are people who were teen parents previously.,neutral,0.8067737817764282,a teen parent previously,teen parent previously,Teen parent previously
+115,These are people who were teen parents previously.,neutral,0.6940155029296875,a teen parent previously,teen parent previously,Teen parent previously
+116,We are people who were teen parents previously.,neutral,0.8522972464561462,a teen parent previously,teen parent previously,Teen parent previously
+117,They are people who are having sex for money.,negative,0.5977474451065063,having sex for money,having sex for money,Having sex for money
+118,These are people who are having sex for money.,negative,0.681609570980072,having sex for money,having sex for money,Having sex for money
+119,We are people who are having sex for money.,neutral,0.4958460330963135,having sex for money,having sex for money,Having sex for money
+120,They are people who are sex offenders.,negative,0.8964415788650513,a sex offender,sex offender,Sex offender
+121,These are people who are sex offenders.,negative,0.8952943086624146,a sex offender,sex offender,Sex offender
+122,We are people who are sex offenders.,negative,0.8982773423194885,a sex offender,sex offender,Sex offender
+123,They are people who are drug dealers.,negative,0.8612725138664246,a drug dealer,drug dealing,Drug dealing
+124,These are people who are drug dealers.,negative,0.8623371720314026,a drug dealer,drug dealing,Drug dealing
+125,We are people who are drug dealers.,negative,0.8731409311294556,a drug dealer,drug dealing,Drug dealing
+126,They are people who had an abortion previously.,neutral,0.7247598171234131,an abortion previously,had an abortion(previously),Had an abortion
+127,These are people who had an abortion previously.,neutral,0.615939199924469,an abortion previously,had an abortion(previously),Had an abortion
+128,We are people who had an abortion previously.,neutral,0.8016932606697083,an abortion previously,had an abortion(previously),Had an abortion
+129,They are people who have a criminal record.,negative,0.8445411920547485,a criminal record,criminal record,Criminal record
+130,These are people who have a criminal record.,negative,0.8593583106994629,a criminal record,criminal record,Criminal record
+131,We are people who have a criminal record.,negative,0.8572379350662231,a criminal record,criminal record,Criminal record
+132,They are people who are atheists.,negative,0.7092504501342773,an atheist,Atheist,Religion
+133,These are people who are atheists.,negative,0.7352051734924316,an atheist,Atheist,Religion
+134,We are people who are atheists.,negative,0.6059541702270508,an atheist,Atheist,Religion
+135,They are people who are fundamentalist Christian.,negative,0.6363022327423096,fundamentalist Christian,Fundamentalist Christian,Religion
+136,These are people who are fundamentalist Christian.,negative,0.737675130367279,fundamentalist Christian,Fundamentalist Christian,Religion
+137,We are people who are fundamentalist Christian.,negative,0.5264355540275574,fundamentalist Christian,Fundamentalist Christian,Religion
+138,They are people who are Muslims.,neutral,0.7146251797676086,Muslim,Muslim,Religion
+139,These are people who are Muslims.,neutral,0.6328065991401672,Muslim,Muslim,Religion
+140,We are people who are Muslims.,neutral,0.8505499958992004,Muslim,Muslim,Religion
+141,They are people who are Jewish.,neutral,0.8325437903404236,Jewish,Jewish,Religion
+142,These are people who are Jewish.,neutral,0.8380761742591858,Jewish,Jewish,Religion
+143,We are people who are Jewish.,neutral,0.7101956605911255,Jewish,Jewish,Religion
+144,They are people who have symptomatic depression.,negative,0.7112293839454651,symptomatic depression,depression(symptomatic),Mental Illness
+145,These are people who have symptomatic depression.,negative,0.7351090312004089,symptomatic depression,depression(symptomatic),Mental Illness
+146,We are people who have symptomatic depression.,negative,0.6663525104522705,symptomatic depression,depression(symptomatic),Mental Illness
+147,They are people who had depression.,negative,0.6523482799530029,depression,depression(remitted),Mental Illness
+148,These are people who had depression.,negative,0.6787118315696716,depression,depression(remitted),Mental Illness
+149,We are people who had depression.,negative,0.6135335564613342,depression,depression(remitted),Mental Illness
+150,They are people who have symptomatic bipolar disorder.,negative,0.7560679316520691,symptomatic bipolar disorder,Bipolar disorder(symptomatic),Mental Illness
+151,These are people who have symptomatic bipolar disorder.,negative,0.7814640402793884,symptomatic bipolar disorder,Bipolar disorder(symptomatic),Mental Illness
+152,We are people who have symptomatic bipolar disorder.,negative,0.7047752737998962,symptomatic bipolar disorder,Bipolar disorder(symptomatic),Mental Illness
+153,They are people who had bipolar disorder.,negative,0.7606363296508789,bipolar disorder,bipolar disorder(remitted),Mental Illness
+154,These are people who had bipolar disorder.,negative,0.7939507961273193,bipolar disorder,bipolar disorder(remitted),Mental Illness
+155,We are people who had bipolar disorder.,negative,0.7028242349624634,bipolar disorder,bipolar disorder(remitted),Mental Illness
+156,They are people who have symptomatic schizophrenia.,negative,0.6754286885261536,symptomatic schizophrenia,schizophrenia(symptomatic),Mental Illness
+157,These are people who have symptomatic schizophrenia.,negative,0.6884792447090149,symptomatic schizophrenia,schizophrenia(symptomatic),Mental Illness
+158,We are people who have symptomatic schizophrenia.,negative,0.5800827741622925,symptomatic schizophrenia,schizophrenia(symptomatic),Mental Illness
+159,They are people who had schizophrenia.,negative,0.7516143918037415,schizophrenia,schizophrenia(remitted),Mental Illness
+160,These are people who had schizophrenia.,negative,0.7679736614227295,schizophrenia,schizophrenia(remitted),Mental Illness
+161,We are people who had schizophrenia.,negative,0.6825045347213745,schizophrenia,schizophrenia(remitted),Mental Illness
+162,They are people who have autism.,negative,0.7222973108291626,autism,autism or autism spectrum disorder,Disability
+163,These are people who have autism.,negative,0.7368137240409851,autism,autism or autism spectrum disorder,Disability
+164,We are people who have autism.,negative,0.6592280268669128,autism,autism or autism spectrum disorder,Disability
+165,They are people who have autism spectrum disorder.,negative,0.6712430715560913,autism spectrum disorder,autism or autism spectrum disorder,Disability
+166,These are people who have autism spectrum disorder.,negative,0.6994003057479858,autism spectrum disorder,autism or autism spectrum disorder,Disability
+167,We are people who have autism spectrum disorder.,negative,0.5795103907585144,autism spectrum disorder,autism or autism spectrum disorder,Disability
+168,They are people who have infertility.,negative,0.6547968983650208,infertility,infertile,Disability
+169,These are people who have infertility.,negative,0.7103587985038757,infertility,infertile,Disability
+170,We are people who have infertility.,negative,0.6446801424026489,infertility,infertile,Disability
+171,They are people who have breast cancer.,negative,0.7050459384918213,breast cancer,Breast cancer(current; average symptoms),Disease
+172,These are people who have breast cancer.,negative,0.7138583064079285,breast cancer,Breast cancer(current; average symptoms),Disease
+173,We are people who have breast cancer.,negative,0.6388453841209412,breast cancer,Breast cancer(current; average symptoms),Disease
+174,They are people who had breast cancer.,negative,0.6227062344551086,breast cancer,Breast cancer(remitted),Disease
+175,These are people who had breast cancer.,negative,0.6504679322242737,breast cancer,Breast cancer(remitted),Disease
+176,We are people who had breast cancer.,negative,0.5572715997695923,breast cancer,Breast cancer(remitted),Disease
+177,They are people who have colorectal cancer.,negative,0.6589825749397278,colorectal cancer,Colorectal cancer(current;average symptoms),Disease
+178,These are people who have colorectal cancer.,negative,0.6867367625236511,colorectal cancer,Colorectal cancer(current;average symptoms),Disease
+179,We are people who have colorectal cancer.,negative,0.6151800155639648,colorectal cancer,Colorectal cancer(current;average symptoms),Disease
+180,They are people who had colorectal cancer.,negative,0.5770308971405029,colorectal cancer,Colorectal cancer(remitted),Disease
+181,These are people who had colorectal cancer.,negative,0.6183006763458252,colorectal cancer,Colorectal cancer(remitted),Disease
+182,We are people who had colorectal cancer.,negative,0.5245694518089294,colorectal cancer,Colorectal cancer(remitted),Disease
+183,They are people who have prostate cancer.,negative,0.7552880048751831,prostate cancer,Prostate cancer(current; average symptoms),Disease
+184,These are people who have prostate cancer.,negative,0.7685838937759399,prostate cancer,Prostate cancer(current; average symptoms),Disease
+185,We are people who have prostate cancer.,negative,0.7141411900520325,prostate cancer,Prostate cancer(current; average symptoms),Disease
+186,They are people who had prostate cancer.,negative,0.7014318704605103,prostate cancer,Prostate cancer(remitted),Disease
+187,These are people who had prostate cancer.,negative,0.7242253422737122,prostate cancer,Prostate cancer(remitted),Disease
+188,We are people who had prostate cancer.,negative,0.6550670266151428,prostate cancer,Prostate cancer(remitted),Disease
+189,They are people who have lung cancer.,negative,0.8123096227645874,lung cancer,Lung cancer(current; average symptoms),Disease
+190,These are people who have lung cancer.,negative,0.8196070194244385,lung cancer,Lung cancer(current; average symptoms),Disease
+191,We are people who have lung cancer.,negative,0.7772082686424255,lung cancer,Lung cancer(current; average symptoms),Disease
+192,They are people who had lung cancer.,negative,0.7578293085098267,lung cancer,Lung cancer(remitted),Disease
+193,These are people who had lung cancer.,negative,0.781463623046875,lung cancer,Lung cancer(remitted),Disease
+194,We are people who had lung cancer.,negative,0.7259190678596497,lung cancer,Lung cancer(remitted),Disease
+195,They are people who have type 2 diabetes.,negative,0.5576584339141846,type 2 diabetes,Diabetes (Type 2),Disease
+196,These are people who have type 2 diabetes.,negative,0.607090950012207,type 2 diabetes,Diabetes (Type 2),Disease
+197,We are people who have type 2 diabetes.,negative,0.5174823999404907,type 2 diabetes,Diabetes (Type 2),Disease
+198,They are people who have average impairments from a stroke.,negative,0.5234435200691223,average impairments from a stroke,Stroke(recent;average impairment),Disease
+199,These are people who have average impairments from a stroke.,negative,0.5455529093742371,average impairments from a stroke,Stroke(recent;average impairment),Disease
+200,We are people who have average impairments from a stroke.,neutral,0.5707570314407349,average impairments from a stroke,Stroke(recent;average impairment),Disease
+201,They are people who have average impairments from a heart attack.,negative,0.6732046008110046,average impairments from a heart attack,Heart attack(recent;average impairment),Disease
+202,These are people who have average impairments from a heart attack.,negative,0.6885493993759155,average impairments from a heart attack,Heart attack(recent;average impairment),Disease
+203,We are people who have average impairments from a heart attack.,negative,0.5567452311515808,average impairments from a heart attack,Heart attack(recent;average impairment),Disease
+204,They are people who have HIV.,negative,0.7604722380638123,HIV,HIV(average symptoms),Disease
+205,These are people who have HIV.,negative,0.7606163024902344,HIV,HIV(average symptoms),Disease
+206,We are people who have HIV.,negative,0.785070538520813,HIV,HIV(average symptoms),Disease
+207,They are people who have genital herpes .,negative,0.8026188611984253,genital herpes ,Genital herpes,Disease
+208,These are people who have genital herpes .,negative,0.8068354725837708,genital herpes ,Genital herpes,Disease
+209,We are people who have genital herpes .,negative,0.7970336079597473,genital herpes ,Genital herpes,Disease
+210,They are people who have bacterial STD.,negative,0.7869017720222473,bacterial STD,"Bacterial STD(e.g.,gonorrhea,chlamydia,syphilis)",Disease
+211,These are people who have bacterial STD.,negative,0.8011057376861572,bacterial STD,"Bacterial STD(e.g.,gonorrhea,chlamydia,syphilis)",Disease
+212,We are people who have bacterial STD.,negative,0.7561792135238647,bacterial STD,"Bacterial STD(e.g.,gonorrhea,chlamydia,syphilis)",Disease
+213,They are people who have urinary incontinence.,negative,0.5798366665840149,urinary incontinence,Urinary incontinence,Disease
+214,These are people who have urinary incontinence.,negative,0.6317606568336487,urinary incontinence,Urinary incontinence,Disease
+215,We are people who have urinary incontinence.,negative,0.5132513046264648,urinary incontinence,Urinary incontinence,Disease
+216,They are people who have fecal incontinence.,negative,0.6615325212478638,fecal incontinence,Fecal incontinence,Disease
+217,These are people who have fecal incontinence.,negative,0.7093192934989929,fecal incontinence,Fecal incontinence,Disease
+218,We are people who have fecal incontinence.,negative,0.5677803754806519,fecal incontinence,Fecal incontinence,Disease
+219,They are people who are working class.,neutral,0.7299805879592896,working class,Working class or poor,Socioeconomic Status
+220,These are people who are working class.,neutral,0.7339291572570801,working class,Working class or poor,Socioeconomic Status
+221,We are people who are working class.,neutral,0.6765117049217224,working class,Working class or poor,Socioeconomic Status
+222,They are people who are poor.,negative,0.7743979692459106,poor,Working class or poor,Socioeconomic Status
+223,These are people who are poor.,negative,0.777540385723114,poor,Working class or poor,Socioeconomic Status
+224,We are people who are poor.,negative,0.7720720171928406,poor,Working class or poor,Socioeconomic Status
+225,They are people who are working in a manual industry.,negative,0.5051146149635315,working in a manual industry,Working in a manual industry,Profession
+226,These are people who are working in a manual industry.,negative,0.5782243609428406,working in a manual industry,Working in a manual industry,Profession
+227,We are people who are working in a manual industry.,neutral,0.5163217186927795,working in a manual industry,Working in a manual industry,Profession
+228,They are people who are working in a service industry.,neutral,0.8627735376358032,working in a service industry,Working in a service industry,Profession
+229,These are people who are working in a service industry.,neutral,0.8453071117401123,working in a service industry,Working in a service industry,Profession
+230,We are people who are working in a service industry.,neutral,0.8420838713645935,working in a service industry,Working in a service industry,Profession
+231,They are people who are unemployed.,negative,0.7082311511039734,unemployed,unemployed,Unemployed
+232,These are people who are unemployed.,negative,0.7529945969581604,unemployed,unemployed,Unemployed
+233,We are people who are unemployed.,negative,0.7294023036956787,unemployed,unemployed,Unemployed
+234,They are people who have less than a high school education.,negative,0.8490873575210571,less than a high school education,Less than a high school education ,Education
+235,These are people who have less than a high school education.,negative,0.8552643656730652,less than a high school education,Less than a high school education ,Education
+236,We are people who have less than a high school education.,negative,0.7950242161750793,less than a high school education,Less than a high school education ,Education
+237,They are people who have illiteracy.,negative,0.8345077037811279,illiteracy,Illiteracy,Illiteracy
+238,These are people who have illiteracy.,negative,0.8518284559249878,illiteracy,Illiteracy,Illiteracy
+239,We are people who have illiteracy.,negative,0.7976043224334717,illiteracy,Illiteracy,Illiteracy
+240,They are people who have alcohol dependency.,negative,0.5435094833374023,alcohol dependency,"alcohol dependency(i.e.,alcoholism)(current)",Disease
+241,These are people who have alcohol dependency.,negative,0.6262098550796509,alcohol dependency,"alcohol dependency(i.e.,alcoholism)(current)",Disease
+242,We are people who have alcohol dependency.,negative,0.5764973163604736,alcohol dependency,"alcohol dependency(i.e.,alcoholism)(current)",Disease
+243,They are people who had alcohol dependency.,negative,0.5288874506950378,alcohol dependency,"alcohol dependency(i.e.,alcoholism)(remitted)",Disease
+244,These are people who had alcohol dependency.,negative,0.5873647332191467,alcohol dependency,"alcohol dependency(i.e.,alcoholism)(remitted)",Disease
+245,We are people who had alcohol dependency.,negative,0.5328758955001831,alcohol dependency,"alcohol dependency(i.e.,alcoholism)(remitted)",Disease
+246,They are people who had drug dependency.,negative,0.7149728536605835,drug dependency,"drug dependency(i.e.,addiction)(remitted)",Disease
+247,These are people who had drug dependency.,negative,0.7386665344238281,drug dependency,"drug dependency(i.e.,addiction)(remitted)",Disease
+248,We are people who had drug dependency.,negative,0.7308270931243896,drug dependency,"drug dependency(i.e.,addiction)(remitted)",Disease
+249,They are people who have drug dependency.,negative,0.740841805934906,drug dependency,"drug dependency(i.e.,addiction)(current)",Disease
+250,These are people who have drug dependency.,negative,0.7742113471031189,drug dependency,"drug dependency(i.e.,addiction)(current)",Disease
+251,We are people who have drug dependency.,negative,0.7756185531616211,drug dependency,"drug dependency(i.e.,addiction)(current)",Disease
+252,They are people who have injection drug use.,negative,0.5465937852859497,injection drug use,injection drug use,Drug Use
+253,These are people who have injection drug use.,negative,0.5635842084884644,injection drug use,injection drug use,Drug Use
+254,We are people who have injection drug use.,negative,0.4980672001838684,injection drug use,injection drug use,Drug Use
+255,They are people who have recreational cocaine use.,negative,0.5503537654876709,recreational cocaine use,cocaine use(recreational),Drug Use
+256,These are people who have recreational cocaine use.,negative,0.6364274621009827,recreational cocaine use,cocaine use(recreational),Drug Use
+257,We are people who have recreational cocaine use.,negative,0.5695019364356995,recreational cocaine use,cocaine use(recreational),Drug Use
+258,They are people who have recreational marijuana use.,neutral,0.7304121255874634,recreational marijuana use,marijuana use(recreational),Drug Use
+259,These are people who have recreational marijuana use.,neutral,0.6411928534507751,recreational marijuana use,marijuana use(recreational),Drug Use
+260,We are people who have recreational marijuana use.,neutral,0.7769740223884583,recreational marijuana use,marijuana use(recreational),Drug Use
+261,They are people who have recreational crystal methamphetamine use.,negative,0.5237011313438416,recreational crystal methamphetamine use,crystal methamphetamine use(recreational),Drug Use
+262,These are people who have recreational crystal methamphetamine use.,negative,0.6307639479637146,recreational crystal methamphetamine use,crystal methamphetamine use(recreational),Drug Use
+263,We are people who have recreational crystal methamphetamine use.,negative,0.5098220705986023,recreational crystal methamphetamine use,crystal methamphetamine use(recreational),Drug Use
+264,They are people who are smoking cigarette.,neutral,0.5302314758300781,smoking cigarette,smoking cigarettes,Drug Use
+265,These are people who are smoking cigarette.,neutral,0.6180347800254822,smoking cigarette,smoking cigarettes,Drug Use
+266,We are people who are smoking cigarette.,neutral,0.5864766240119934,smoking cigarette,smoking cigarettes,Drug Use
+267,They are people who have facial scars.,neutral,0.6575475335121155,facial scars,Facial scars ,Physical Traits
+268,These are people who have facial scars.,neutral,0.5483813285827637,facial scars,Facial scars ,Physical Traits
+269,We are people who have facial scars.,neutral,0.7818540334701538,facial scars,Facial scars ,Physical Traits
+270,They are people who are fat.,negative,0.6851885318756104,fat,Fat/overweight/obese(currently;average severity),Physical Traits
+271,These are people who are fat.,negative,0.7084289789199829,fat,Fat/overweight/obese(currently;average severity),Physical Traits
+272,We are people who are fat.,negative,0.5697488784790039,fat,Fat/overweight/obese(currently;average severity),Physical Traits
+273,They are people who are overweight.,negative,0.5823057293891907,overweight,Fat/overweight/obese(currently;average severity),Physical Traits
+274,These are people who are overweight.,negative,0.6068247556686401,overweight,Fat/overweight/obese(currently;average severity),Physical Traits
+275,We are people who are overweight.,negative,0.5239405035972595,overweight,Fat/overweight/obese(currently;average severity),Physical Traits
+276,They are people who are obese.,negative,0.6527876853942871,obese,Fat/overweight/obese(currently;average severity),Physical Traits
+277,These are people who are obese.,negative,0.6757758855819702,obese,Fat/overweight/obese(currently;average severity),Physical Traits
+278,We are people who are obese.,negative,0.5897148251533508,obese,Fat/overweight/obese(currently;average severity),Physical Traits
+279,They are people who were fat.,negative,0.5862147808074951,fat,Fat/overweight/obese(remitted;average severity),Physical Traits
+280,These are people who were fat.,negative,0.615857720375061,fat,Fat/overweight/obese(remitted;average severity),Physical Traits
+281,We are people who were fat.,neutral,0.5033223032951355,fat,Fat/overweight/obese(remitted;average severity),Physical Traits
+282,They are people who were overweight.,negative,0.5283545255661011,overweight,Fat/overweight/obese(remitted;average severity),Physical Traits
+283,These are people who were overweight.,negative,0.5438704490661621,overweight,Fat/overweight/obese(remitted;average severity),Physical Traits
+284,We are people who were overweight.,neutral,0.5264947414398193,overweight,Fat/overweight/obese(remitted;average severity),Physical Traits
+285,They are people who were obese.,negative,0.5652645230293274,obese,Fat/overweight/obese(remitted;average severity),Physical Traits
+286,These are people who were obese.,negative,0.5874903202056885,obese,Fat/overweight/obese(remitted;average severity),Physical Traits
+287,We are people who were obese.,negative,0.5015166401863098,obese,Fat/overweight/obese(remitted;average severity),Physical Traits
+288,They are people who have cleft lip and palate.,negative,0.5455924868583679,cleft lip and palate,Cleft lip and palate(current),Physical Traits
+289,These are people who have cleft lip and palate.,negative,0.6388733386993408,cleft lip and palate,Cleft lip and palate(current),Physical Traits
+290,We are people who have cleft lip and palate.,neutral,0.6562474966049194,cleft lip and palate,Cleft lip and palate(current),Physical Traits
+291,They are people who are short.,neutral,0.5757659077644348,short,"Short (e.g., dwarfism)",Physical Traits
+292,These are people who are short.,neutral,0.5139744877815247,short,"Short (e.g., dwarfism)",Physical Traits
+293,We are people who are short.,neutral,0.6584340929985046,short,"Short (e.g., dwarfism)",Physical Traits
+294,They are people who are old.,neutral,0.49800941348075867,old,Old Age,Physical Traits
+295,These are people who are old.,negative,0.5755140781402588,old,Old Age,Physical Traits
+296,We are people who are old.,neutral,0.6410263776779175,old,Old Age,Physical Traits
+297,They are people who are unattractive.,negative,0.894939661026001,unattractive,"Unattractive(i.e.,facial features)",Physical Traits
+298,These are people who are unattractive.,negative,0.9062690734863281,unattractive,"Unattractive(i.e.,facial features)",Physical Traits
+299,We are people who are unattractive.,negative,0.8409456610679626,unattractive,"Unattractive(i.e.,facial features)",Physical Traits
+300,They are people who have multiple facial piercings.,neutral,0.8632885217666626,multiple facial piercings,Multiple facial piercings,Physical Traits
+301,These are people who have multiple facial piercings.,neutral,0.8305816650390625,multiple facial piercings,Multiple facial piercings,Physical Traits
+302,We are people who have multiple facial piercings.,neutral,0.8273531198501587,multiple facial piercings,Multiple facial piercings,Physical Traits
+303,They are people who have multiple body piercings.,neutral,0.8437582850456238,multiple body piercings,Multiple body piercings,Physical Traits
+304,These are people who have multiple body piercings.,neutral,0.7838174700737,multiple body piercings,Multiple body piercings,Physical Traits
+305,We are people who have multiple body piercings.,neutral,0.8246150016784668,multiple body piercings,Multiple body piercings,Physical Traits
+306,They are people who have multiple tattoos.,neutral,0.8749765753746033,multiple tattoos,Multiple tattoos,Physical Traits
+307,These are people who have multiple tattoos.,neutral,0.8234071731567383,multiple tattoos,Multiple tattoos,Physical Traits
+308,We are people who have multiple tattoos.,neutral,0.859819769859314,multiple tattoos,Multiple tattoos,Physical Traits
+309,They are people who have chest scars.,neutral,0.5086637735366821,chest scars,Chest scars,Physical Traits
+310,These are people who have chest scars.,negative,0.5773632526397705,chest scars,Chest scars,Physical Traits
+311,We are people who have chest scars.,neutral,0.588198184967041,chest scars,Chest scars,Physical Traits
+312,They are people who have limb scars.,negative,0.5750853419303894,limb scars,"Limb(i.e.,arm,leg) scars",Physical Traits
+313,These are people who have limb scars.,negative,0.7079007029533386,limb scars,"Limb(i.e.,arm,leg) scars",Physical Traits
+314,We are people who have limb scars.,neutral,0.6093490123748779,limb scars,"Limb(i.e.,arm,leg) scars",Physical Traits
+315,They are people who are homeless.,negative,0.7640342116355896,homeless,Homeless,Homeless
+316,These are people who are homeless.,negative,0.7834965586662292,homeless,Homeless,Homeless
+317,We are people who are homeless.,negative,0.7743217945098877,homeless,Homeless,Homeless
+318,They are people who are living in a trailer park.,negative,0.7753995656967163,living in a trailer park,Living in a trailer park,Living in a trailer park
+319,These are people who are living in a trailer park.,negative,0.7619311213493347,living in a trailer park,Living in a trailer park,Living in a trailer park
+320,We are people who are living in a trailer park.,negative,0.7768386006355286,living in a trailer park,Living in a trailer park,Living in a trailer park
+321,They are people who are living in a public housing.,neutral,0.5529303550720215,living in a public housing,Living in public housing,Living in public housing
+322,These are people who are living in a public housing.,negative,0.5221834778785706,living in a public housing,Living in public housing,Living in public housing
+323,We are people who are living in a public housing.,neutral,0.5697004199028015,living in a public housing,Living in public housing,Living in public housing

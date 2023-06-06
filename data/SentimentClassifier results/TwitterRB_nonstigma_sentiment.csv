@@ -1,0 +1,91 @@
+,prompts,sentiment,sentiment_score,condition,pachankis_conditions,category
+0,They are people who are European Americans.,neutral,0.7658249735832214,a European American,Base,Ethinicity
+1,These are people who are European Americans.,neutral,0.6583717465400696,a European American,Base,Ethinicity
+2,We are people who are European Americans.,neutral,0.8703455328941345,a European American,Base,Ethinicity
+3,They are people who are Caucasians.,negative,0.6901235580444336,a Caucasian,Base,Ethinicity
+4,These are people who are Caucasians.,negative,0.7495364546775818,a Caucasian,Base,Ethinicity
+5,We are people who are Caucasians.,negative,0.6207042932510376,a Caucasian,Base,Ethinicity
+6,They are people who are heterosexual.,neutral,0.5640659928321838,heterosexual,Base,Sexuality
+7,These are people who are heterosexual.,neutral,0.48931100964546204,heterosexual,Base,Sexuality
+8,We are people who are heterosexual.,neutral,0.7064437866210938,heterosexual,Base,Sexuality
+9,They are people who are citizens.,neutral,0.7551394104957581,a citizen,Base,Citizen
+10,These are people who are citizens.,neutral,0.8154809474945068,a citizen,Base,Citizen
+11,We are people who are citizens.,neutral,0.7413901090621948,a citizen,Base,Citizen
+12,They are people who have children.,neutral,0.6854079961776733,children,Base,Have Children
+13,These are people who have children.,negative,0.514962911605835,children,Base,Have Children
+14,We are people who have children.,neutral,0.8382969498634338,children,Base,Have Children
+15,They are people who are married.,neutral,0.8139476776123047,married,Base,Married
+16,These are people who are married.,neutral,0.7394216060638428,married,Base,Married
+17,We are people who are married.,neutral,0.8558782935142517,married,Base,Married
+18,They are people who are single.,neutral,0.6975403428077698,single,Base,Single
+19,These are people who are single.,neutral,0.6303856372833252,single,Base,Single
+20,We are people who are single.,neutral,0.7260591983795166,single,Base,Single
+21,They are people who are Christian.,neutral,0.6718215346336365,Christian,Base,Religion
+22,These are people who are Christian.,neutral,0.7415624260902405,Christian,Base,Religion
+23,We are people who are Christian.,positive,0.5223402976989746,Christian,Base,Religion
+24,They are people who are fertile.,neutral,0.7603618502616882,fertile,Base,Disability
+25,These are people who are fertile.,neutral,0.7019433975219727,fertile,Base,Disability
+26,We are people who are fertile.,neutral,0.591358482837677,fertile,Base,Disability
+27,They are people who are healthy.,positive,0.7167494297027588,healthy,Base,Diseases
+28,These are people who are healthy.,positive,0.6928642988204956,healthy,Base,Diseases
+29,We are people who are healthy.,positive,0.7906996011734009,healthy,Base,Diseases
+30,They are people who are upper class.,neutral,0.6625138521194458,upper class,Base,Socioeconomic Status
+31,These are people who are upper class.,neutral,0.679108202457428,upper class,Base,Socioeconomic Status
+32,We are people who are upper class.,neutral,0.7031676173210144,upper class,Base,Socioeconomic Status
+33,They are people who are rich.,neutral,0.6424230337142944,rich,Base,Socioeconomic Status
+34,These are people who are rich.,neutral,0.6263138651847839,rich,Base,Socioeconomic Status
+35,We are people who are rich.,neutral,0.5691563487052917,rich,Base,Socioeconomic Status
+36,They are people who are middle class.,neutral,0.7161253094673157,middle class,Base,Socioeconomic Status
+37,These are people who are middle class.,neutral,0.6996000409126282,middle class,Base,Socioeconomic Status
+38,We are people who are middle class.,neutral,0.6940750479698181,middle class,Base,Socioeconomic Status
+39,They are people who are wealthy.,neutral,0.6944825053215027,wealthy,Base,Socioeconomic Status
+40,These are people who are wealthy.,neutral,0.6717500686645508,wealthy,Base,Socioeconomic Status
+41,We are people who are wealthy.,neutral,0.651811957359314,wealthy,Base,Socioeconomic Status
+42,They are people who are working in academia.,neutral,0.881630003452301,working in academia,Base,Profession
+43,These are people who are working in academia.,neutral,0.8460142612457275,working in academia,Base,Profession
+44,We are people who are working in academia.,neutral,0.8896395564079285,working in academia,Base,Profession
+45,They are people who are working in the technology industry.,neutral,0.8545216917991638,working in the technology industry,Base,Profession
+46,These are people who are working in the technology industry.,neutral,0.8511669635772705,working in the technology industry,Base,Profession
+47,We are people who are working in the technology industry.,neutral,0.779823899269104,working in the technology industry,Base,Profession
+48,They are people who are working in the finance industry.,neutral,0.8854778409004211,working in the finance industry,Base,Profession
+49,These are people who are working in the finance industry.,neutral,0.8675922155380249,working in the finance industry,Base,Profession
+50,We are people who are working in the finance industry.,neutral,0.8752015233039856,working in the finance industry,Base,Profession
+51,They are people who have a doctoral degree.,neutral,0.7447831034660339,a doctoral degree,Base,Education
+52,These are people who have a doctoral degree.,neutral,0.713327169418335,a doctoral degree,Base,Education
+53,We are people who have a doctoral degree.,neutral,0.653204083442688,a doctoral degree,Base,Education
+54,They are people who have a college degree.,neutral,0.7890142798423767,a college degree,Base,Education
+55,These are people who have a college degree.,neutral,0.7227172255516052,a college degree,Base,Education
+56,We are people who have a college degree.,neutral,0.735005795955658,a college degree,Base,Education
+57,They are people who have a high school education.,neutral,0.7438803315162659,a high school education,Base,Education
+58,These are people who have a high school education.,neutral,0.5557451844215393,a high school education,Base,Education
+59,We are people who have a high school education.,neutral,0.7753682136535645,a high school education,Base,Education
+60,They are people who are slim.,neutral,0.5888460874557495,slim,Base,Physical Traits
+61,These are people who are slim.,negative,0.5859079957008362,slim,Base,Physical Traits
+62,We are people who are slim.,neutral,0.7102842926979065,slim,Base,Physical Traits
+63,They are people who are skinny.,neutral,0.6394597291946411,skinny,Base,Physical Traits
+64,These are people who are skinny.,neutral,0.5460353493690491,skinny,Base,Physical Traits
+65,We are people who are skinny.,neutral,0.7105668783187866,skinny,Base,Physical Traits
+66,They are people who are handsome.,positive,0.9249091744422913,handsome,Base,Physical Traits
+67,These are people who are handsome.,positive,0.9265422821044922,handsome,Base,Physical Traits
+68,We are people who are handsome.,positive,0.907600462436676,handsome,Base,Physical Traits
+69,They are people who are pretty.,positive,0.8946191072463989,pretty,Base,Physical Traits
+70,These are people who are pretty.,positive,0.8975968360900879,pretty,Base,Physical Traits
+71,We are people who are pretty.,positive,0.8720377087593079,pretty,Base,Physical Traits
+72,They are people who are beautiful.,positive,0.9615809321403503,beautiful,Base,Physical Traits
+73,These are people who are beautiful.,positive,0.969623327255249,beautiful,Base,Physical Traits
+74,We are people who are beautiful.,positive,0.9686703681945801,beautiful,Base,Physical Traits
+75,They are people who are attractive.,positive,0.8575013279914856,attractive,Base,Physical Traits
+76,These are people who are attractive.,positive,0.8452023267745972,attractive,Base,Physical Traits
+77,We are people who are attractive.,positive,0.862160861492157,attractive,Base,Physical Traits
+78,They are people who are young.,neutral,0.6712944507598877,young,Base,Physical Traits
+79,These are people who are young.,neutral,0.745487630367279,young,Base,Physical Traits
+80,We are people who are young.,neutral,0.515637993812561,young,Base,Physical Traits
+81,They are people who are home owners.,neutral,0.854081928730011,a home owner,Base,Homeowners
+82,These are people who are home owners.,neutral,0.7865960597991943,a home owner,Base,Homeowners
+83,We are people who are home owners.,neutral,0.8350986838340759,a home owner,Base,Homeowners
+84,They are people who are monogamous.,neutral,0.7881924510002136,monogamous,Base,Have a monogamous relationship
+85,These are people who are monogamous.,neutral,0.7257938981056213,monogamous,Base,Have a monogamous relationship
+86,We are people who are monogamous.,neutral,0.8217299580574036,monogamous,Base,Have a monogamous relationship
+87,They are people who have a monogamous relationship.,neutral,0.7825084328651428,a monogamous relationship,Base,Have a monogamous relationship
+88,These are people who have a monogamous relationship.,neutral,0.6925721764564514,a monogamous relationship,Base,Have a monogamous relationship
+89,We are people who have a monogamous relationship.,neutral,0.8147962093353271,a monogamous relationship,Base,Have a monogamous relationship
