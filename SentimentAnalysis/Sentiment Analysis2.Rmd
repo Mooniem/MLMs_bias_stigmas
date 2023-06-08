@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(R.utils)
 library(ggpattern)
-
+library(ggplot2)
 stigma_conditions <- read_csv("/Users/katelynmei/Documents/Github/MLMs_bias_stigmas/stigma_conditions.csv") %>%
   select(Pachankis_condition,Final_Category) %>% 
   unique()
@@ -179,6 +179,8 @@ merged_sentiment_data %>%
         strip.text.x = element_text(size = 7))
 # dev.off()
 
+```
+```{r}
 # Evaluate difference between templates in each model 
  merged_sentiment_data %>%
   group_by(model,Sentiment,prompt_templates) %>%
@@ -189,7 +191,20 @@ merged_sentiment_data %>%
    pivot_wider(names_from = prompt_templates, values_from = percent_of_sentiment) %>% 
    filter(Sentiment=="Negative") %>% 
    mutate(diff = round(`these are`-`they are`,digits = 2))
+ 
+#Evaluate percentage of negative classification for each condition categories within each model 
+ merged_sentiment_data %>%
+  group_by(model,Sentiment,condition_categories) %>%
+  count() %>% # count the number of classification for each sentiment in each model for each condition categories
+  ungroup() %>% 
+  group_by(model,condition_categories) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>% # calculate the percentage of sentiment classifications for each condition categories in each model 
+  filter(Sentiment=="Negative") %>% # select the percentage for negative classification 
+   select(-n) %>% 
+  pivot_wider(names_from = condition_categories, values_from = percent_of_sentiment) %>% 
+   mutate(diff = round(`Stigmatized`-`Non-stigmatized`,digits = 2))
 ```
+
 
 ```{r Visualize ration of sentiment}
 # svglite("All_models_between_conditions_SentimentAnalysis.svg", width = 13, height = 5)
