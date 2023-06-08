@@ -7,11 +7,15 @@ date: "2023-01-17"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
 ```{r message=FALSE}
 library(tidyverse)
 library(R.utils)
 library(ggpattern)
-stigma_conditions <- read_csv("/Users/katelynmei/Documents/Github/DRG-Fall2022/stigma_conditions.csv") %>% select(Pachankis_condition,Final_Category) %>% unique()
+
+stigma_conditions <- read_csv("/Users/katelynmei/Documents/Github/MLMs_bias_stigmas/stigma_conditions.csv") %>%
+  select(Pachankis_condition,Final_Category) %>% 
+  unique()
 
 sentiment_SIEBERT_stigma <- read_csv("SiEBERT_stigma_sentiment.csv") 
 sentiment_SIEBERT_nonstigma <- read_csv("SiEBERT_nonstigma_sentiment.csv")
