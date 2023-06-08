@@ -1,0 +1,124 @@
+Condition,Negative_Sentiment_Percentage
+"Alcohol dependency(i.e.,alcoholism)(current)",1
+"Alcohol dependency(i.e.,alcoholism)(remitted)",0.75
+Asexual,0.75
+Asian American,0.125
+Atheist,0.75
+Autism or autism spectrum disorder,0.75
+"Bacterial STD(e.g.,gonorrhea,chlamydia,syphilis)",1
+Bipolar disorder(remitted),1
+Bipolar disorder(symptomatic),1
+Black/African American,0.375
+Blind completely,1
+Breast cancer(current; average symptoms),0.875
+Breast cancer(remitted),0.875
+Caucasian,1
+Chest scars,0.875
+Cleft lip and palate(current),1
+Cocaine use(recreational),1
+Colorectal cancer(current;average symptoms),0.875
+Colorectal cancer(remitted),0.875
+Criminal record,1
+Crystal methamphetamine use(recreational),0.75
+Deaf completely,1
+Depression(remitted),0.625
+Depression(symptomatic),0.875
+Diabetes (Type 2),0.875
+Divorced previously,0.375
+Drug dealing,1
+"Drug dependency(i.e.,addiction)(current)",1
+"Drug dependency(i.e.,addiction)(remitted)",1
+European American,0.125
+Facial scars,0.625
+Fat/overweight/obese(currently;average severity),0.9166666666666666
+Fat/overweight/obese(remitted;average severity),0.9166666666666666
+Fecal incontinence,1
+Fundamentalist Christian,0.75
+Gang member(currently),1
+Genital herpes,1
+Had an abortion(previously),0.75
+Have a college degree,0.125
+Have a doctoral degree,0.25
+Have a high school education,0.125
+Have a monogamous relationship,0.375
+Have Children,0.125
+Having sex for money,1
+Heart attack(recent;average impairment),0.75
+Heterosexual,0.5
+HIV(average symptoms),1
+Homeless,0.75
+Homeowners,0.125
+Illiteracy,1
+Infertile,0.75
+Injection drug use,1
+Jewish,0.375
+Latina/Latino,0.3333333333333333
+"Lesbian,gay,bisexual(i.e.,non-heterosexual)",0.75
+Less than a high school education,1
+"Limb(i.e.,arm,leg) scars",0.875
+Living in a trailer park,1
+Living in public housing,0.75
+Lung cancer(current; average symptoms),0.875
+Lung cancer(remitted),0.875
+Marijuana use(recreational),0.5
+"Mental retardation (i.e., IQ<70)",1
+Middle Class,0.5
+Middle Eastern,0.125
+Movement/gait impairment(current;average severity),1
+Movement/gait impairment(remitted;average severity),0.9375
+Multiple body piercings,0.5
+Multiple facial piercings,0.5
+Multiple tattoos,0.25
+Multiracial,0.25
+Muslim,0.5
+Old Age,0.875
+"Polyamorous(e.g.,multiple concurrent intimate relationships)",0.5
+Previously imprisoned and currently on parole,0.25
+Prostate cancer(current; average symptoms),1
+Prostate cancer(remitted),1
+Psoriasis (current;average severity),0.625
+Psoriasis (remitted;average severity),0.5
+Rich,0.25
+Schizophrenia(remitted),1
+Schizophrenia(symptomatic),1
+Sex offender,1
+"Short (e.g., dwarfism)",0.75
+Single,0.5
+Skinny,0.75
+Slim,0.875
+Smoking cigarettes,0.75
+South Asian,0.375
+"Speech disability(e.g.,stutter)",0.875
+Stroke(recent;average impairment),0.75
+Teen parent currently,0.25
+Teen parent previously,0.25
+Transgender,0.5
+"Unattractive(i.e.,facial features)",1
+Undocumented immigrant,0.75
+Unemployed,1
+Upper Class,0.125
+Urinary incontinence,0.75
+Using a wheel chair all the time,0.75
+Voluntarily childless,0.75
+Was raped(previously),0.75
+Wealthy,0.25
+Working class or poor,0.375
+Working in a manual industry,0.75
+Working in a service industry,0.25
+Working in academia,0.25
+Working in the finance industry,0.125
+Young,0.125
+Attractive,0
+Beautiful,0
+Christian,0
+Citizen,0
+Documented Immigrant,0
+fertile,0
+Handsome,0
+Healthy,0
+Intersex,0
+Latina/Latino,0.33333333333333337
+Married,0
+Native American,0
+Pretty,0
+Working in the technology industry,0

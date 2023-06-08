@@ -1,0 +1,403 @@
+---
+title: "Sentiment Analysis"
+output: html_document 
+date: "2023-01-17"
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE}
+library(tidyverse)
+library(R.utils)
+library(ggpattern)
+stigma_conditions <- read_csv("/Users/katelynmei/Documents/Github/DRG-Fall2022/stigma_conditions.csv") %>% select(Pachankis_condition,Final_Category) %>% unique()
+
+sentiment_SIEBERT_stigma <- read_csv("SiEBERT_stigma_sentiment.csv") 
+sentiment_SIEBERT_nonstigma <- read_csv("SiEBERT_nonstigma_sentiment.csv")
+sentiment_TwitterRB_stigma <- read_csv("TwitterRB_stigma_sentiment.csv")
+sentiment_TwitterRB_nonstigma <- read_csv("TwitterRB_nonstigma_sentiment.csv")
+sentiment_BERTweet_nonstigma = read_csv("bertweet-base_nonstigma_sentiment.csv")
+sentiment_BERTweet_stigma = read_csv("bertweet-base_stigma_sentiment.csv")
+
+distil_bert_nonstigma <- read_csv("distilbert_nonstigma_sentiment.csv")
+distil_bert_stigma <- read_csv("distilbert_stigma_sentiment.csv")
+
+patterns2 <-c( "stripe","circle")
+patterns3 <- c( "stripe","none","circle")
+colors_2 <-c("#BB3E03","#457b9d")
+colors_3 <-c("#BB3E03","#fdf0d5","#457b9d")
+colors_4 <- c("#D8464B","#337064")
+colors <-c("#005f73","#0A9396","#E9D8A6","#ee9b00","#CA6702","#BB3E03")
+
+```
+
+# Add in information for prompt category 
+```{r}
+add_information <- function(dataset,model_name,condition_name){
+  dataset <- dataset %>% mutate(model = model_name,
+                                condition_categories = condition_name,
+                                prompt_templates =ifelse(str_detect(prompts,"They are"),
+                                                         "they are",
+                                                         ifelse(str_detect(prompts,"These are"),"these are","we are")))
+  return(dataset)
+}
+
+SIEBERT_stigma_result <- add_information(sentiment_SIEBERT_stigma,"SiEBERT","Stigmatized")
+SIEBERT_nonstigma_result <- add_information(sentiment_SIEBERT_nonstigma,"SiEBERT","Non-stigmatized")
+SIEBERT_result <-rbind(SIEBERT_stigma_result,SIEBERT_nonstigma_result) %>% select(-1)
+
+TwitterRB_stigma_result <- add_information(sentiment_TwitterRB_stigma,"TwitterRB_latest","Stigmatized")
+TwitterRB_nonstigma_result <- add_information(sentiment_TwitterRB_nonstigma,"TwitterRB_latest","Non-stigmatized")
+TwitterRB_result <- rbind(TwitterRB_stigma_result,TwitterRB_nonstigma_result) %>% select(-1)
+
+BERTweet_stigma_result <- add_information(sentiment_BERTweet_stigma,"BERTweet","Stigmatized")
+BERTweet_nonstigma_result <- add_information(sentiment_BERTweet_nonstigma,"BERTweet","Non-stigmatized")
+BERTweet_result <- rbind(BERTweet_stigma_result,BERTweet_nonstigma_result) %>% select(-1)
+
+
+distil_bert_nonstigma_sentiment<-  add_information(distil_bert_nonstigma,"DistilBERT base uncased finetuned SST-2","Non-stigmatized") %>% select(-1)
+distil_bert_stigma_sentiment<-  add_information(distil_bert_stigma,"DistilBERT base uncased finetuned SST-2","Stigmatized") %>% select(-1)
+distilbert_sentiment_result = rbind(distil_bert_nonstigma_sentiment,distil_bert_stigma_sentiment)
+
+```
+
+
+```{r}
+#Function for data processing
+aggregate_sentiment <- function(sentiment_data){
+  #aggregate mean score of sentiment for condition
+  aggregate_data <- sentiment_data %>%
+    mutate(pachankis_conditions = ifelse(condition_categories=="Non-stigmatized",
+                                         condition,
+                                         pachankis_conditions))
+  return(aggregate_data)
+} 
+
+distilbert_sentiment_result_aggregated <- distilbert_sentiment_result %>% aggregate_sentiment()
+SIEBERT_result_aggregated <- SIEBERT_result %>% aggregate_sentiment()
+TwitterRB_result_aggregated <- TwitterRB_result %>% aggregate_sentiment()
+BERTweet_result_aggregated <- BERTweet_result %>% aggregate_sentiment()
+```
+
+
+#Merge all results from the four models and standardize spelling for conditions
+```{r}
+
+#Join results from all models
+merged_sentiment_data <- rbind(TwitterRB_result_aggregated,
+                              SIEBERT_result_aggregated,
+                              BERTweet_result_aggregated,
+                              distilbert_sentiment_result_aggregated) 
+
+# Standardize sentiment words
+merged_sentiment_data<- merged_sentiment_data %>% 
+  mutate(Sentiment =ifelse(sentiment=="NEG"|sentiment=="NEGATIVE"|sentiment=="negative",
+                           "Negative",
+                      ifelse(sentiment=="NEU"|sentiment=="neutral","Neutral","Positive")) ) %>%
+  select(-sentiment)
+
+# Standardize naming for nonstigma conditions
+nonstigmatized_conditions <- read_csv("/Users/katelynmei/Documents/Github/DRG-Fall2022/non_stigma_conditions.csv")
+nonstigmatized_conditions_naming <- nonstigmatized_conditions %>% select(Condition,Condition_StandardNaming)
+
+merged_sentiment_data <- merged_sentiment_data %>%
+  left_join(nonstigmatized_conditions_naming,by = c("pachankis_conditions"="Condition")) %>%
+  mutate(Condition = ifelse(condition_categories=="Stigmatized",
+                            capitalize(pachankis_conditions),
+                            Condition_StandardNaming) ) %>%
+  select(-Condition_StandardNaming)
+
+######## Fix categories 
+## Assign category for each condition 
+non_stigma_conditions2 <- nonstigmatized_conditions %>%
+  select(Condition_StandardNaming,Final_Category)
+colnames(non_stigma_conditions2)[1]<- "condition"
+
+# conditions <- rbind(stigma_conditions,non_stigma_conditions2)
+
+## filter out we are
+merged_sentiment_data <- merged_sentiment_data %>% 
+  filter(!prompt_templates=="we are") %>% 
+  mutate(condition=ifelse(str_detect(condition,"Illteracy"),"Illiteracy",condition),
+         Condition=ifelse(str_detect(Condition,"Illteracy"),"Illiteracy",Condition))
+
+
+```
+
+##Visualization starts here 
+
+#Compare prompt templates difference
+```{r}
+# svglite("Prompt_templates_difference_SentimentAnalysis.svg", width = 5, height = 3)
+merged_sentiment_data %>%
+  group_by(Sentiment,prompt_templates) %>%
+  count() %>%
+  group_by(prompt_templates) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>%
+  ggplot(aes(x = prompt_templates, y = percent_of_sentiment, fill = Sentiment))+
+  geom_col()+
+     geom_col_pattern(stat = "identity",
+                   pattern_color = "white",
+                   pattern_fill = "black",
+                   pattern_key_scale_factor = 0.7,
+                   aes(pattern = Sentiment))+
+   scale_pattern_manual(values =patterns3) +
+  scale_fill_manual(values =colors_3)+
+  labs(y ="Distribution of Sentiment",
+       x = "Prompt Templates")+
+  theme_bw()
+ # dev.off()
+# svglite("Prompt_templates_difference_byModel_SentimentAnalysis.svg", width = 8, height = 3)
+merged_sentiment_data %>%
+  filter(!prompt_templates=="we are") %>% 
+  group_by(model,Sentiment,prompt_templates) %>%
+  count() %>%
+  group_by(model, prompt_templates) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>%
+  ggplot(aes(x = prompt_templates, y = percent_of_sentiment, fill = Sentiment))+
+  geom_col()+
+     geom_col_pattern(stat = "identity",
+                   pattern_color = "white",
+                   pattern_fill = "black",
+                   pattern_key_scale_factor = 0.7,
+                   aes(pattern = Sentiment))+
+   scale_pattern_manual(values =patterns3) +
+  scale_fill_manual(values =colors_3)+
+  labs(y ="Distribution of Sentiment",
+       x = "Prompt Templates")+
+  facet_grid(~model,labeller = label_wrap_gen(width=15))+
+  theme_bw()+
+      theme(axis.text.x = element_text(size = 10),
+        legend.text = element_text(size = 13),
+        legend.title = element_text(size = 10),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 7))
+# dev.off()
+
+# Evaluate difference between templates in each model 
+ merged_sentiment_data %>%
+  group_by(model,Sentiment,prompt_templates) %>%
+  count() %>%
+  group_by(model, prompt_templates) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>% 
+   select(-n) %>% 
+   pivot_wider(names_from = prompt_templates, values_from = percent_of_sentiment) %>% 
+   filter(Sentiment=="Negative") %>% 
+   mutate(diff = round(`these are`-`they are`,digits = 2))
+```
+
+```{r Visualize ration of sentiment}
+# svglite("All_models_between_conditions_SentimentAnalysis.svg", width = 13, height = 5)
+merged_sentiment_data %>%
+  group_by(Sentiment,condition_categories,model) %>%
+  count() %>%
+  group_by(condition_categories,model) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>%
+     ggplot(aes(x = condition_categories, y = percent_of_sentiment, fill = Sentiment))+
+  geom_col()+
+   geom_col_pattern(stat = "identity",
+                   pattern_color = "white",
+                   pattern_fill = "black",
+                   pattern_key_scale_factor = 0.7,
+                   aes(pattern = Sentiment))+
+  scale_pattern_manual(values =patterns3) +
+  scale_fill_brewer(palette = "RdBu")+
+  labs( y = "Sentiment Classification", x = "Condition Categories")+
+  scale_fill_manual(values =colors_3)+
+  theme_bw()+
+    theme(axis.text.x = element_text(size = 10),
+        legend.text = element_text(size = 13),
+        legend.title = element_text(size = 13),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 13))+
+  facet_grid(~model,labeller = label_wrap_gen(width=13))
+# dev.off()
+
+###Graphs for they are 
+# svglite("All_models_between_conditions_Theyare_SentimentAnalysis.svg", width = 13, height = 5)
+merged_sentiment_data %>%
+  filter(prompt_templates=="they are") %>%
+  group_by(Sentiment,condition_categories,model) %>%
+  count() %>%
+  group_by(condition_categories,model) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>%
+     ggplot(aes(x = condition_categories, y = percent_of_sentiment, fill = Sentiment))+
+   geom_col_pattern(stat = "identity",
+                   pattern_color = "white",
+                   pattern_fill = "black",
+                   pattern_key_scale_factor = 0.7,
+                   aes(pattern = Sentiment))+
+  scale_pattern_manual(values =patterns3) +
+  labs( y = "Sentiment Classification", x = "Condition Categories",title="Prompt Templates: 'They are'")+
+  scale_fill_manual(values =colors_3)+
+  theme_bw()+
+    theme(axis.text.x = element_text(size = 13),
+        legend.text = element_text(size = 13),
+        legend.title = element_text(size = 13),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 13))+
+  facet_grid(~model,labeller = label_wrap_gen(width=15))
+# dev.off()
+
+###graphs for these are
+# svglite("All_models_between_conditions_Theseare_SentimentAnalysis.svg", width = 13, height = 5)
+merged_sentiment_data %>%
+  filter(prompt_templates=="these are") %>%
+  group_by(Sentiment,condition_categories,model) %>%
+  count() %>%
+  group_by(condition_categories,model) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>%
+     ggplot(aes(x = condition_categories, y = percent_of_sentiment, fill = Sentiment))+
+   geom_col_pattern(stat = "identity",
+                   pattern_color = "white",
+                   pattern_fill = "black",
+                   pattern_key_scale_factor = 0.7,
+                   aes(pattern = Sentiment))+
+  scale_pattern_manual(values =patterns3) +
+  labs( y = "Sentiment Classification", x = "Condition Categories",title="Prompt Templates: 'These are'")+
+  scale_fill_manual(values =colors_3)+
+  theme_bw()+
+      theme(axis.text.x = element_text(vjust = 1, hjust=1,size = 13),
+        legend.text = element_text(size = 13),
+        legend.title = element_text(size = 13),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 13))+
+  facet_grid(~model,labeller = label_wrap_gen(width=15))
+# dev.off()
+```
+
+
+# In general if we take all sentiment classification account for each condition, what proportion of prompts will be classified as negative?
+```{r}
+
+colors_portion <-c("#457b9d","#BB3E03")
+#"#98c1d9","#e29578"
+colors_portion2 <-c("#BB3E03","#fdf0d5")
+
+#### Regroup sentiment into two categories 
+# break the giant graph into two graphs 
+
+# graph1 
+# svglite("Condition_Ranking_SentimentAnalysis_1.svg", width = 8, height = 9)
+merged_sentiment_data %>% 
+  mutate(New_sentiment = ifelse(Sentiment=="Negative","Negative","Non-negative")) %>% 
+  filter(condition_categories=="Stigmatized",
+         !pachankis_conditions%in%("a person")) %>% 
+  group_by(Condition) %>% 
+  count(New_sentiment) %>% 
+  mutate(Sentiment_proportion = n/sum(n)) %>% 
+
+  mutate(dummy_score = case_when(New_sentiment == "Negative" ~ Sentiment_proportion,
+                          TRUE ~ 1 - Sentiment_proportion)) %>% # use this to reorder variable! 
+  filter(dummy_score >0.5) %>% 
+  ggplot()+
+  geom_col(aes(x = reorder(Condition,dummy_score), y = Sentiment_proportion, fill = New_sentiment),show.legend = TRUE) +
+  scale_fill_manual(values =c("#98c1d9","#e29578"))+
+  labs(fill = "Sentiment", x = "Stigmatized Conditions", y = "Distribution of Sentiment")+
+  theme_bw()+
+  coord_flip()+
+    ggtitle("Sentiment Classification Outcomes for Stigmatized Conditions")+
+      theme(plot.title = element_text(size=10,hjust = 0.5))
+# dev.off()
+
+# graph2 
+# svglite("Condition_Ranking_SentimentAnalysis_2.svg", width = 8, height = 7)
+merged_sentiment_data %>% 
+  mutate(New_sentiment = ifelse(Sentiment=="Negative",
+                                "Negative",
+                                "Non-negative")) %>% 
+  filter(condition_categories=="Stigmatized",
+         !pachankis_conditions%in%("a person")) %>% 
+  group_by(Condition) %>% 
+  count(New_sentiment) %>% 
+  mutate(Sentiment_proportion = n/sum(n)) %>% 
+  mutate(dummy_score = case_when(New_sentiment == "Negative" ~ Sentiment_proportion,
+                          TRUE ~ 1 - Sentiment_proportion)) %>% # use this to reorder variable! 
+  filter(dummy_score <=0.5) %>% 
+  ggplot()+
+  geom_col(aes(x = reorder(Condition,dummy_score), y = Sentiment_proportion, fill = New_sentiment),show.legend = TRUE) +
+  scale_fill_manual(values =c("#98c1d9","#e29578"))+
+  labs(fill = "Sentiment", x = "Stigmatized Conditions", y = "Distribution of Sentiment")+
+  theme_bw()+
+  coord_flip()+
+  ggtitle("Sentiment Classification Outcomes for Stigmatized Conditions")+
+    theme(plot.title = element_text(size=10,hjust = 0.5))
+# dev.off()
+
+
+
+# svglite("Condition_Non-Stigmatized_Ranking_SentimentAnalysis.svg", width = 8, height = 5)
+merged_sentiment_data %>% 
+  mutate(New_sentiment = ifelse(Sentiment=="Negative","Negative","Non-negative")) %>% 
+  filter(condition_categories=="Non-stigmatized") %>% 
+  group_by(Condition) %>% 
+  count(New_sentiment) %>% 
+  mutate(Sentiment_proportion = n/sum(n)) %>% 
+  mutate(dummy_score = case_when(New_sentiment == "Negative" ~ Sentiment_proportion,
+                          TRUE ~ 1 - Sentiment_proportion)) %>%
+  ggplot()+
+  geom_col(aes(x = reorder(Condition,dummy_score), y = Sentiment_proportion, fill = New_sentiment),show.legend = TRUE) +
+  scale_fill_manual(values = c("#98c1d9","#e29578"))+
+  labs( fill = "Sentiment",x = "Non-stigmatized Conditions", y = "Distribution of Sentiment")+
+  theme_bw()+
+  ggtitle("Sentiment Classification Outcomes for Non-stigmatized Conditions")+
+    theme(plot.title = element_text(size=10,hjust = 0.5))+
+  coord_flip()
+# dev.off()
+
+
+```
+```{r}
+
+# Calculate the proportion of stigmatized conditions are classifed with more than 50 percent negative sentiments 
+merged_sentiment_data %>% 
+  filter(condition_categories=="Stigmatized",
+         !pachankis_conditions%in%("a person")) %>% 
+  group_by(Condition) %>% 
+  count(Sentiment) %>% 
+  mutate(sentiment_proportion = n/sum(n)) %>% 
+  filter(Sentiment=="Negative") %>% 
+  mutate(greater_or_equal_50 = ifelse(sentiment_proportion >0.5,1,0)) %>%
+  group_by(greater_or_equal_50) %>% 
+  count() %>% ungroup() %>% mutate(percent_thatisGreaterorEqualTo_50 = n/93)
+
+# check total conditions match what we have 
+merged_sentiment_data %>% ungroup() %>% filter(condition_categories =="Stigmatized") %>% select(pachankis_conditions) %>% unique() # in total we have 91 conditions 
+merged_sentiment_data %>% ungroup() %>% filter(!pachankis_conditions%in%("a person"),condition_categories =="Non-stigmatized") %>% select(Condition) %>% unique() # in total we have  
+
+# Calculate the proportion of nonstigmatized conditions are classifed with more than 50 percent negative sentiments 
+merged_sentiment_data %>% 
+  filter(condition_categories=="Non-stigmatized",
+         !pachankis_conditions%in%("a person")) %>% 
+  group_by(Condition) %>% 
+  count(Sentiment) %>% 
+  mutate(sentiment_proportion = n/sum(n)) %>% 
+  filter(Sentiment=="Negative") %>% 
+  filter(sentiment_proportion >0.5)
+
+```
+
+## All models compare categories (output negative percentage probability for correlation analysis)
+```{r}
+condition_sentiment_percentage <- merged_sentiment_data %>%  
+  mutate(Binary_sentiment =ifelse(Sentiment =="Negative","Negative","Non-negative")) %>% 
+  group_by(Binary_sentiment,Condition,category) %>%
+  count() %>%
+  ungroup() %>% 
+  group_by(Condition) %>%
+  mutate(percent_of_sentiment = n/sum(n)) %>% 
+  mutate(Negative_Sentiment_Percentage = ifelse(Binary_sentiment=="Negative",percent_of_sentiment,1-percent_of_sentiment))
+
+
+negative_percentage_probability <- condition_sentiment_percentage %>% select(Condition,  Negative_Sentiment_Percentage) %>% unique()
+negative_percentage_probability
+# write_csv(negative_percentage_probability,"aggregated_negative_percentage_classification_results.csv")
+condition_sentiment_percentage %>%
+  ungroup() %>% 
+  group_by(category,Binary_sentiment) %>% # calculate the percent of sentiment for each condition 
+  summarise(mean_sentiment_prob = mean(percent_of_sentiment))
+```
+
+
+

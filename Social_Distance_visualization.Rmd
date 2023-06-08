@@ -1,0 +1,412 @@
+---
+title: "Social_Distance_Visualization"
+output: html_document
+date: "2023-01-23"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+library(readxl)
+library(stringr)
+library(R.utils)
+library(correlation)
+library(corrplot)
+library(ggpattern)
+library(svglite)
+library(tidytext)
+colors <-c("#005f73","#0A9396","#E9D8A6","#ee9b00","#CA6702","#BB3E03")
+```
+
+```{r}
+# Read in preprocessed data from each model 
+XLNET_results <- read_csv("SD-results-XLNET-large.csv") %>% select(-1)
+Distilbert_results <- read_csv("SD-results-DistilBERT.csv") %>% select(-1)
+RB_results <- read_csv("SD-results-RoBERTa-base.csv") %>% select(-1)
+RL_results <- read_csv("SD-results-RoBERTa-large.csv") %>% select(-1)
+BTB_results <- read_csv("SD-results-BERTweet-base.csv") %>% select(-1)
+BTL_results <- read_csv("SD-results-BERTweet-large.csv")%>% select(-1)
+```
+
+
+
+```{r}
+##Merge results from each model 
+all_results <- rbind(XLNET_results,Distilbert_results,RB_results,RL_results,BTB_results,BTL_results)
+all_results <- all_results %>% 
+  mutate(pachankis_conditions = ifelse(condition_categories=="Stigmatized",pachankis_conditions,condition))
+
+
+## Assign category for each condition 
+stigma_conditions <- read_csv("stigma_conditions.csv") %>% select(Pachankis_condition,Final_Category) %>% unique()
+non_stigma_conditions <- read_csv("non_stigma_conditions.csv") %>% select(Condition, Final_Category) %>% unique()
+
+# standardize names for Psoriasis condition
+stigma_conditions  <- stigma_conditions %>%  mutate(Pachankis_condition =ifelse(str_detect(Pachankis_condition ,"Psoriasis") & str_detect(Pachankis_condition ,"current"),"Psoriasis (current;average severity)",Pachankis_condition ))
+stigma_conditions  <-  stigma_conditions %>%  mutate(Pachankis_condition =ifelse(str_detect(Pachankis_condition ,"Psoriasis") & str_detect(Pachankis_condition ,"remitted"),"Psoriasis (remitted;average severity)",Pachankis_condition ))
+
+
+stigma_conditions <- stigma_conditions %>% 
+  mutate(condition = capitalize(Pachankis_condition)) %>% 
+  select(condition,Final_Category)
+
+non_stigma_conditions<- non_stigma_conditions %>% 
+  mutate(condition = Condition) %>% select(condition,Final_Category)
+
+
+conditions <- rbind(stigma_conditions,non_stigma_conditions)
+all_results <- all_results %>% 
+  left_join(conditions, by = c("pachankis_conditions"="condition")) %>% 
+  mutate(category = Final_Category) %>% 
+  select(-Final_Category)
+```
+
+# Evaluate the maximum probability and the minimum probability of the 50th token from all models' prediction 
+```{r}
+all_results %>% 
+  group_by(prompt,Model,condition) %>% 
+  summarise(min_prob = min(probs)) %>% 
+  ungroup() %>% 
+  summarise(max_minprob = max(min_prob),
+            min_minprob = min(min_prob))
+```
+
+#Histogram of probability for each word 
+```{r}
+
+sum_probability_data <- all_results %>% 
+  group_by(Model,prompt) %>%  # group by each model and each prompt 
+  summarise(total_prediction_prob = sum(probs))  # sum the probability of all top 50 tokens in each prompt
+
+all_results %>% 
+  group_by(Model,prompt) %>% 
+  summarise(total_prediction_prob = sum(probs)) %>% 
+  ungroup() %>%  
+  summarise(avg_summed_prob = mean(total_prediction_prob))
+
+# svglite("summed_probability_for_top50_tokens_generated.svg",width = 10,height = 5)
+sum_probability_data %>% 
+  ggplot()+
+  geom_histogram(aes(x = total_prediction_prob, fill=Model ))+
+  scale_fill_manual(values =colors )+
+  labs(x = "Summed Probability of Top 50 Tokens Per Prompt")+
+  facet_wrap(~Model)+theme_bw()
+# dev.off()
+```
+
+##Visualize Aggregated Results 
+```{r}
+####Read in files 
+all_merged_condition_prob_XLNET<-read_csv("aggregated_SD_results_XLNET.csv") %>% mutate(Model="XLNet-large")
+all_merged_condition_prob_RB<-read_csv("aggregated_SD_results_RB.csv") %>% mutate(Model="RoBERTa-base")
+all_merged_condition_prob_RL<-read_csv("aggregated_SD_results_RL.csv") %>%  mutate(Model="RoBERTa-large")
+all_merged_condition_prob_DB <- read_csv("aggregated_SD_results_DB.csv") %>% mutate(Model ="DistilBERT")
+all_merged_condition_prob_BTB <- read_csv("aggregated_SD_results_BERTweet-Base.csv") %>% mutate(Model ="BERTweet-base")
+all_merged_condition_prob_BTL <- read_csv("aggregated_SD_results_BERTweet-large.csv") %>% mutate(Model ="BERTweet-large")
+
+
+
+###Merge all models data
+all_data <- rbind(all_merged_condition_prob_DB,
+                  all_merged_condition_prob_XLNET,
+                  all_merged_condition_prob_RB,
+                  all_merged_condition_prob_RL,
+                  all_merged_condition_prob_BTB,
+                  all_merged_condition_prob_BTL)
+
+all_data <- all_data %>% mutate(condition =ifelse(str_detect(condition,"Psoriasis") & str_detect(condition,"current"),"Psoriasis (current;average severity)",condition))
+all_data <- all_data %>% mutate(condition =ifelse(str_detect(condition,"Psoriasis") & str_detect(condition,"remitted"),"Psoriasis (remitted;average severity)",condition))
+
+### Standardize condition categories 
+
+non_stigma_conditions2 <- read_csv("non_stigma_conditions.csv") %>% select(Condition_StandardNaming, Final_Category)
+colnames(non_stigma_conditions2)[1] <- "condition"
+conditions <- rbind(stigma_conditions,non_stigma_conditions2)
+
+all_data<- all_data %>% 
+  left_join(conditions, by = "condition") %>% 
+  mutate(category = Final_Category) %>% 
+  select(-Final_Category) 
+all_data <- all_data %>% mutate(category = ifelse(str_detect(category,"Diseases"),"Disease",category),
+                                condition = ifelse(str_detect(condition,"Illteracy"),"Illiteracy",condition))
+
+
+
+##
+all_data_withoutBase <- all_data %>% filter(!condition=="None") %>% select(-1)
+colnames(all_data_withoutBase)[4] <- "Condition Category"
+
+```
+
+# Visualize overall probability of a negative attitude for each condition (stigmatized and non-stigmatized)
+```{r}
+# list categories
+category1 = c("Religion","Ethinicity","Sexuality","Disease","Mental Illness","Drug Use","Physical Traits","Disability","Socioeconomic Status","Education","Profession")
+
+condition_overall_neg_prob_across_models <- all_data_withoutBase %>%
+  filter(Label =="NEG") %>% 
+  group_by(condition,category,`Condition Category`) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) 
+
+# separate stigmatized and non-stigmatized condition data for visualization 
+stigmatized_overall <- condition_overall_neg_prob_across_models %>% filter(`Condition Category`=="Stigmatized")
+non_stigmatized_overall <- condition_overall_neg_prob_across_models %>% filter(`Condition Category`=="Non-stigmatized")
+
+# save plot and visualize overall negative probability 
+sd_visual_category1 <- all_data_withoutBase %>%
+  filter(Label =="NEG") %>%  # look at negative probability 
+  group_by(condition,category,`Condition Category`) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) %>% 
+  filter(category %in% category1) %>% 
+  ggplot()+
+  geom_point(aes(x=category,y = condition_overall_neg_prob, color = `Condition Category`,
+                 shape=`Condition Category`),
+             size = 2)+
+  scale_color_manual(values = c("#BB3E03","#005f73"))+
+  theme_bw()+
+   theme(axis.text.x = element_text(size = 13),
+        legend.text = element_text(size = 10,lineheight = 2),
+        legend.title = element_text(size = 10),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 10))+
+  labs( y = "Overall Probability of Negative Attitude", x = "Conditions(in Category)")+ 
+  ylim(0.25,1)+
+  coord_flip()
+
+# show plot
+sd_visual_category1
+
+# save plot for conditions that are not categorized 
+sd_visual_category2 <- all_data_withoutBase %>%
+  filter(Label =="NEG") %>% 
+  group_by(condition,category,`Condition Category`) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) %>% 
+  filter(!category %in% category1) %>% 
+  ggplot()+
+  geom_point(aes(x=category,y = condition_overall_neg_prob, color = `Condition Category`,shape=`Condition Category`),
+             size = 2.5,,show.legend = FALSE)+
+  scale_color_manual(values = c("#BB3E03","#005f73"))+
+  theme_bw()+
+     theme(axis.text.x = element_text(size = 13),
+        legend.text = element_text(size = 13),
+        legend.title = element_text(size = 13),
+        strip.text.x = element_text(size = 13))+
+   labs( y = "Overall Probability of Negative Attitude", x = "Conditions")+
+  ylim(0.25,1)+
+  coord_flip()
+sd_visual_category2
+
+
+# function to put two plots together 
+cowplot::plot_grid(sd_visual_category1, sd_visual_category2)
+sd_both_condition_plot <- cowplot::plot_grid(sd_visual_category1, sd_visual_category2)
+
+# ggsave2("Social_distance_Category.svg",width = 11,height = 5.5)
+
+```
+```{r}
+# count the total number of conditions that has an overall negative probability greater than 0.6
+ all_data_withoutBase %>%
+  filter(Label =="NEG") %>% 
+  group_by(condition,category,`Condition Category`) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) %>%
+  filter(condition_overall_neg_prob>0.6) %>% 
+  group_by(`Condition Category`) %>% 
+   count()
+
+```
+
+
+
+# Calculate the overall average difference of probability of negative words between stigmatized and non-stigmatized conditiosn across models
+```{r} 
+colors <-c("#005f73","#0A9396","#E9D8A6","#ee9b00","#CA6702","#BB3E03")
+
+all_data %>% 
+  filter(Label=="NEG") %>% 
+  group_by(Model,prompt_templates,condition_categories) %>% 
+  summarise(avg_attitude = round(mean(condition_probs),digits = 2)) %>% 
+  pivot_wider(names_from = condition_categories,values_from = avg_attitude) %>% 
+  mutate(difference_of_negative_probs = Stigmatized - `Non-stigmatized`) %>% 
+  ungroup() %>% 
+  summarise(mean_diff = mean(difference_of_negative_probs))
+```
+```{r}
+# average probability of negative words for each model and for each type of condition 
+all_data %>% 
+  filter(Label=="NEG") %>% 
+  group_by(Model,prompt_templates,condition_categories) %>% 
+  summarise(avg_attitude = round(mean(condition_probs),digits = 2)) %>% 
+  pivot_wider(names_from = condition_categories,values_from = avg_attitude) %>% 
+  mutate(Difference = Stigmatized-`Non-stigmatized`) %>% 
+  ungroup() %>% 
+  group_by(Model) %>% 
+  summarise(avg_diff = mean(Difference))
+
+
+```
+```{r}
+# overall difference between stigmatized conditions and nonstigmatized conditions by aggregating information from all templates and all models 
+all_data %>% 
+  filter(Label=="NEG") %>% 
+  group_by(Model,prompt_templates,condition_categories) %>% 
+  summarise(avg_attitude = round(mean(condition_probs),digits = 2)) %>% 
+  pivot_wider(names_from = condition_categories,values_from = avg_attitude) %>% 
+  mutate(difference_of_negative_probs = Stigmatized - `Non-stigmatized`) %>% 
+  ungroup() %>% 
+  group_by(Model) %>% 
+  summarise(mean_diff = round(mean(difference_of_negative_probs),digits = 2)) %>% summarise(round(mean(mean_diff),digits=2))
+```
+
+
+# Identify conditions with an overall probability of negative attitude greater than 0.5
+```{r}
+# stigmatized conditions
+all_data %>% 
+  filter(Label =="NEG", condition_categories=="Stigmatized") %>% 
+  group_by(condition) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) %>% 
+  ungroup() %>% 
+  filter(condition_overall_neg_prob >0.5)
+
+# non-stigmatized conditions
+all_data %>% 
+  filter(Label =="NEG", condition_categories=="Non-stigmatized") %>% 
+  group_by(condition) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) %>% 
+  filter(condition_overall_neg_prob > 0.5)
+```
+# Visualize the overall probability of negative attitude for all conditions 
+```{r}
+all_data1 <- all_data
+colnames(all_data1)[5]<- "Condition Categories"
+
+# here we break the giant graph into two separate graphs 
+
+# graph1 overall negative prob
+# svglite("Aggregated_probability_of_negative_words_for_all_conditions_1.svg", width = 8, height = 11)
+all_data1 %>% 
+
+  filter(Label =="NEG") %>% 
+  group_by(condition,`Condition Categories`) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) %>% 
+  ungroup() %>% 
+  filter(condition_overall_neg_prob >=0.5) %>%  # filter 
+  ggplot()+
+  geom_point(aes(x = reorder(condition,condition_overall_neg_prob), y = condition_overall_neg_prob, shape= `Condition Categories`,color = `Condition Categories`))+
+  scale_color_manual(values = c("#BB3E03","#005f73"))+
+  labs( x= "Condition",
+        y = "Overall Probability of Negative Attitude")+
+  theme(axis.text.x = element_text(size=12),
+    legend.text = element_text(size = 15),
+        legend.title = element_text(size = 15))+
+  ylim(c(0,1))+
+  theme_bw()+
+  coord_flip()
+# dev.off()
+
+#graph2.overall negative prob
+# svglite("Aggregated_probability_of_negative_words_for_all_conditions_2.svg", width = 8, height = 8)
+all_data1 %>% 
+  filter(Label =="NEG") %>% 
+  group_by(condition,`Condition Categories`) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) %>% 
+  ungroup() %>% 
+  filter(condition_overall_neg_prob <0.5) %>% 
+  ggplot()+
+  geom_point(aes(x = reorder(condition,condition_overall_neg_prob), y = condition_overall_neg_prob, shape= `Condition Categories`,color = `Condition Categories`))+
+  scale_color_manual(values = c("#BB3E03","#005f73"))+
+  labs( x= "Condition",
+        y = "Overall Probability of Negative Attitude")+
+  theme(axis.text.x = element_text(size=12),
+    legend.text = element_text(size = 15),
+        legend.title = element_text(size = 15))+
+  ylim(c(0,1))+
+  theme_bw()+
+  coord_flip()
+
+# dev.off()
+```
+
+# Generate figure for social distance results 
+##Visualize baseline and condition graph together *attitude_prob_by_template_by_model is the baseline result that comes from the social_distance_base_line_analysis
+```{r}
+attitude_prob_by_template_by_model <- read_csv("aggregated_baseline_results_SD.csv")
+condition_data <- all_data_withoutBase %>% filter(Label=="NEG") 
+# svglite("baseline_and_conditions_SD.svg",width=13,height=5)
+# png("baseline_and_conditions_SD.png")
+ggplot()+
+  geom_boxplot(data = attitude_prob_by_template_by_model,aes(x = prompt_templates,y = condition_probs),color ="#0A81D1")+
+    scale_color_manual( values = c("Baseline Prompts" = "#E69F00")) +
+  geom_boxplot_pattern(data= condition_data, aes(x = prompt_templates,
+             y=condition_probs,
+               fill=`Condition Category`,
+               pattern = `Condition Category`),
+             pattern_fill="black",
+              color ="black",
+              pattern_key_scale_factor = 0.5)+
+  scale_pattern_manual(values = c( "none","stripe")) + 
+
+  labs(col= "Conditions",
+       y = "Probability of Negative Attitude",
+       x = "Prompt templates")+
+  ylim(c(0,1))+
+  facet_grid(~Model)+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1,size = 13),
+        legend.text = element_text(size = 13),
+        legend.title = element_text(size = 13),
+        legend.position = "bottom",
+        strip.text.x = element_text(size = 13))
+# dev.off()
+```
+
+##Correlation between SD and Sentiment (MLMs and Downstream Sentiment Classification correlation!) 
+```{r}
+# read in the aggregated sentiment classification data 
+negative_percentage_probability <-
+  read_csv("aggregated_negative_percentage_classification_results.csv")
+
+# summarise overall negative prob for each condition across all templates and all models
+sd_overall_prob <- all_data %>% 
+  filter(Label =="NEG") %>% 
+  group_by(condition,condition_categories) %>% 
+  summarise(condition_overall_neg_prob = mean(condition_probs)) 
+
+# joined both datasets 
+joint_sd_sentiment_data <- sd_overall_prob %>%
+  left_join(negative_percentage_probability,by=c("condition"="Condition")) 
+
+# remove a duplicate row 
+joint_sd_sentiment_data<- joint_sd_sentiment_data[-64,] 
+
+# make sure there is no more duplicate left
+joint_sd_sentiment_stat<- joint_sd_sentiment_data %>% 
+  ungroup() %>%
+  select(condition_overall_neg_prob,Negative_Sentiment_Percentage) %>% 
+  unique()
+
+# calculate correlation 
+correlation(joint_sd_sentiment_stat)
+```
+# detailed breakdown for condition in each model 
+```{r}
+all_data %>% 
+  filter(Label =="NEG", condition_categories=="Stigmatized") %>% 
+  group_by(Model,condition) %>% 
+  summarise(avg_negative_prob = mean(condition_probs)) %>% 
+  ggplot()+
+  geom_point(aes(x = condition, y = avg_negative_prob, color = Model))+
+  scale_color_manual(values = colors)+
+  coord_flip()
+
+all_data %>% filter(Label =="NEG", condition_categories=="Non-stigmatized") %>% group_by(Model,condition) %>% summarise(avg_negative_prob = mean(condition_probs)) %>% 
+  ggplot()+
+  geom_point(aes(x = condition, y = avg_negative_prob, color = Model))+
+  scale_color_manual(values = colors)+
+  coord_flip()
+
+```
+
+
